@@ -18,7 +18,7 @@
 Classify | URL
 --- | ---
 官网 | [https://docs.python.org/3/library/threading.html](https://docs.python.org/3/library/threading.html "官网")
-中文官网翻译 | [https://blog.csdn.net/qq_38526635/article/details/81748217](https://blog.csdn.net/qq_38526635/article/details/81748217 "中文网")
+中文官网翻译 | [https://cloud.tencent.com/developer/section/1371311](https://cloud.tencent.com/developer/section/1371311 "中文网")
 其他用例 | [https://www.cnblogs.com/hiwuchong/p/8673183.html](https://www.cnblogs.com/hiwuchong/p/8673183.html "其他用例")
 
 ---
