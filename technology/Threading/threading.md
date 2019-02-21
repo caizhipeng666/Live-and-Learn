@@ -4,7 +4,8 @@
 ---
 
 # 官方介绍
-> This module constructs higher-level threading interfaces on top of the lower level _thread module. See also the queue module   
+> This module constructs higher-level threading interfaces on top of the lower level _thread module   
+> See also the queue module   
 > 该模块在较低级别thread模块之上构建更高级别的线程接口。另请参见mutex和Queue模块
 ### Note
 ---
