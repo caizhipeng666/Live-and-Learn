@@ -70,5 +70,8 @@
    > *type   → 类型特定函数   
    > *privdata   → 私有数据   
    > ht[2]   → 哈希表   
-4. ht属性是个包含两个项的数组,每个项都是个哈希表
-   (一般情况下,字典只使用ht[0]哈希表,ht[1]哈希表只会在对ht[0]哈希表进行rehash时使用)
+   > trehashinx   → rehash索引   
+4. ht属性是个包含两个项的数组,每个项都是个哈希表   
+   (一般情况下,字典只使用ht[0]哈希表,ht[1]哈希表只会在对ht[0]哈希表进行rehash时使用)   
+5. hash = 哈希表的hashFunction(键)
+6. index = hash(↑) & ht[x].sizemark
