@@ -8,9 +8,13 @@
                                                  ↑文件夹名   
 ### 模版文件中引入bootstrap
 ```
+<head>
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
 <link rel="stylesheet" href="{% static 'bootstrap/js/bootstrap.min.js' %}">
+</body>
 ```
 
 ### 目前不知道有什么用的jquery
