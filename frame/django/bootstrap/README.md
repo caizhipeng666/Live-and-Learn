@@ -17,3 +17,8 @@
 ```
 <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
 ```
+
+### 去除图标404
+```
+<link rel="shortcut icon" href="图片URL(https://icons8.com/icons)" type="image/x-icon">
+```
