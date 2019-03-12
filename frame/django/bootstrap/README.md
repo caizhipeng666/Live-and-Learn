@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 </head>
 <body>
-<link rel="stylesheet" href="{% static 'bootstrap/js/bootstrap.min.js' %}">
+<script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 </body>
 ```
 
