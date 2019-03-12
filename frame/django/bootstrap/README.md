@@ -11,6 +11,9 @@
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 <link rel="stylesheet" href="{% static 'bootstrap/js/bootstrap.min.js' %}">
+```
 
 ### 目前不知道有什么用的jquery
+```
 <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+```
