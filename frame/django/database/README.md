@@ -67,7 +67,7 @@ class DatabaseAppsRouter(object):
         return None
 
     def allow_relation(self, obj1, obj2, **hints):
-        # 
+        # 当 obj1 和 obj2 之间允许有关系时返回 True ，不允许时返回 False ，或者没有 意见时返回 None
         """Allow any relation between apps that use the same database."""
         db_obj1 = DATABASE_MAPPING.get(obj1._meta.app_label)
         db_obj2 = DATABASE_MAPPING.get(obj2._meta.app_label)
@@ -79,6 +79,7 @@ class DatabaseAppsRouter(object):
         return None
 
     def allow_syncdb(self, db, model):
+        # 决定 model 是否可以和 db 为别名的数据库同步
         """Make sure that apps only appear in the related database."""
 
         if db in DATABASE_MAPPING.values():
