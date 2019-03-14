@@ -23,7 +23,7 @@ DATABASES = {
 ```
 
 2. setting中添加数据库分配
-```
+```python
 # 数据库Router
 DATABASE_ROUTERS = ['app.写在某个py.某个Router类']
 # 数据库分配
@@ -35,7 +35,7 @@ DATABASE_APPS_MAPPING = {
 ```
 
 3. 编写Router类,新增一个py
-```
+```python
 from django.conf import settings
 
 DATABASE_MAPPING = settings.DATABASE_APPS_MAPPING
@@ -67,6 +67,7 @@ class DatabaseAppsRouter(object):
         return None
 
     def allow_relation(self, obj1, obj2, **hints):
+        # 
         """Allow any relation between apps that use the same database."""
         db_obj1 = DATABASE_MAPPING.get(obj1._meta.app_label)
         db_obj2 = DATABASE_MAPPING.get(obj2._meta.app_label)
@@ -96,4 +97,9 @@ class DatabaseAppsRouter(object):
         elif app_label in DATABASE_MAPPING:
             return False
         return None
+```
+
+4. 更新数据库
+```python
+python manage.py migrate --database=info
 ```
