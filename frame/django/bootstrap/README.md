@@ -4,8 +4,10 @@
 > https://v3.bootcss.com/
 
 ### settings.py中添加静态文件配置
+    (全局情况)
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
                                                  ↑文件夹名   
+                                               如果staic放在app中则app.static
 ### 模版文件中引入bootstrap
 ```
 <head>
