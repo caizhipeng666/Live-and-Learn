@@ -1,6 +1,7 @@
 方法 | 说明
 --- | ---
 [多数据库](#多数据库) | 配置&使用
+[加悲观锁](#加悲观锁) | select_for_update()
 ---
 
 # 多数据库
@@ -104,3 +105,8 @@ class DatabaseAppsRouter(object):
 ```python
 python manage.py migrate --database=info
 ```
+---
+
+# 加悲观锁
+
+queryset.objects.select_for_update()
