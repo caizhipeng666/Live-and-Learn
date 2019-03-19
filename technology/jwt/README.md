@@ -49,8 +49,9 @@ jti:编号
 ---
 ### JWT使用方法
 客户端收到的JWT:
-   1. 存放在Cookie
-   2. 存放在localStorage
+   1. 存放在Cookie，使用HttpOnly=True(防御xss)
+   2. 存放在localStorage   
+   ▲容易受到xss跨域脚本攻击
 
 客户端与服务器交互:
    1. 每次通信都带上JWT
