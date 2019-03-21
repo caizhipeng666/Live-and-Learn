@@ -43,6 +43,29 @@ scheduler = BlockingScheduler()
 
 # 作业存储
 ### job stores
+```python
+from pytz import utc
+
+from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.jobstores.mongodb import MongoDBJobStore
+from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
+from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
+
+
+jobstores = {
+    'mongo': MongoDBJobStore(),
+    'default': SQLAlchemyJobStore(url='sqlite:///jobs.sqlite')
+}
+executors = {
+    'default': ThreadPoolExecutor(20),
+    'processpool': ProcessPoolExecutor(5)
+}
+job_defaults = {
+    'coalesce': False,
+    'max_instances': 3
+}
+scheduler = BackgroundScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults, timezone=utc)
+```
 > 每隔5s的任务
 * scheduler.add_job(func=aps_test, args=('定时任务',), trigger='cron', second='*/5')
 > 12s后
