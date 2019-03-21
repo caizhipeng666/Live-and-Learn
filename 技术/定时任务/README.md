@@ -4,7 +4,7 @@
 ---|---
 [定义](#定义)|介绍
 [控制器](#控制器)| Scheduler()
-[定义](#定义)|介绍
+[作业存储](#作业存储)|job stores
 
 ---
 
@@ -18,8 +18,9 @@
    (2)一个作业的数据讲在保存在持久化作业存储时被序列化，并在加载时被反序列化。   
    (3)🔺调度器不能分享同一个作业存储   
 * executors 执行者
+> 处理作业的运行，在一个线程或者进程池来进行，当作业完成时，执行器将会通知调度器
 * triggers 触发器
-> > 按日期、按时间间隔、按cronjob描述式三种触发方式   
+> 按日期、按时间间隔、按cronjob描述式三种触发方式   
 * schedulers 调度
 
 # 控制器
@@ -39,6 +40,9 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 scheduler = BlockingScheduler()
 ```
+
+# 作业存储
+### job stores
 > 每隔5s的任务
 * scheduler.add_job(func=aps_test, args=('定时任务',), trigger='cron', second='*/5')
 > 12s后
