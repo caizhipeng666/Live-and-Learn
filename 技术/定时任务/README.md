@@ -51,11 +51,12 @@ from apscheduler.jobstores.mongodb import MongoDBJobStore
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
 
-
+#
 jobstores = {
     'mongo': MongoDBJobStore(),
     'default': SQLAlchemyJobStore(url='sqlite:///jobs.sqlite')
 }
+# 多进程实现
 executors = {
     'default': ThreadPoolExecutor(20),
     'processpool': ProcessPoolExecutor(5)
