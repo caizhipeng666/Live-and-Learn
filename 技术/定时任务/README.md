@@ -13,10 +13,13 @@
 > Advanced Python Scheduler (APScheduler) is a Python library that lets you schedule your Python code to be executed later, either just once or periodically. You can add new jobs or remove old ones on the fly as you please. If you store your jobs in a database, they will also survive scheduler restarts and maintain their state. When the scheduler is restarted, it will then run all the jobs it should have run while it was offline
 ### 组成
 * scheduler 控制器
-* job stores 工作存储
-> 存储被调度的作业，默认的作业存储是简单地把作业保存在内存中，其他的作业存储是将作业保存在数据库中。一个作业的数据讲在保存在持久化作业存储时被序列化，并在加载时被反序列化。调度器不能分享同一个作业存储
+* job stores 作业存储   
+   (1)默认的作业存储是把作业保存在内存中，(可以设置为保存在数据库中)。   
+   (2)一个作业的数据讲在保存在持久化作业存储时被序列化，并在加载时被反序列化。   
+   (3)🔺调度器不能分享同一个作业存储   
 * executors 执行者
 * triggers 触发器
+> > 按日期、按时间间隔、按cronjob描述式三种触发方式   
 * schedulers 调度
 
 # 控制器
