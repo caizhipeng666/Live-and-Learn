@@ -5,7 +5,9 @@
 [定义](#定义)|介绍
 [控制器](#控制器)| Scheduler()
 [作业存储](#作业存储)|job stores
-
+https://www.cnblogs.com/quijote/p/4385774.html
+https://www.cnblogs.com/luxiaojun/p/6567132.html
+https://apscheduler.readthedocs.io/en/latest/userguide.html
 ---
 
 # 定义
