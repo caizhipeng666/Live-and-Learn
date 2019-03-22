@@ -72,8 +72,7 @@ executors = {
     'processpool': ProcessPoolExecutor(5)
 }
 ```
-
-
+```
 job_defaults = {
     'coalesce': False,
     'max_instances': 3
@@ -96,6 +95,9 @@ job_defaults = {
 scheduler = BackgroundScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults, timezone=utc)
 ```
 ---
+
+add_job的第二个参数是trigger，它管理着作业的调度方式。它可以为date, interval或者cron
+```
 
 > 每隔5s的任务
 * scheduler.add_job(func=aps_test, args=('定时任务',), trigger='cron', second='*/5')
