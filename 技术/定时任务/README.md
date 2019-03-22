@@ -67,6 +67,7 @@ job_defaults = {
     'coalesce': False,
     'max_instances': 3
 }
+    """
     job_defaults参数定义了一些特殊行为：
     1. 某个job积攒了好几次没有实际运行(如系统挂了5分钟)
     'coalesce': True/False
@@ -80,6 +81,7 @@ job_defaults = {
     'misfire_grace_time': 30
     一个job在14:00有一次执行，但是没有被调度上，现在14:01了，
     这个14:00的运行实例被提交时，会检查它预订运行的时间和当下时间的差值（现在14:01差了1分钟），大于设置的30秒限制，∴实例不会被执行
+    """
 scheduler = BackgroundScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults, timezone=utc)
 ```
 ---
