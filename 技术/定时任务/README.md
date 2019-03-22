@@ -5,6 +5,7 @@
 [定义](#定义)|介绍
 [控制器](#控制器)| Scheduler()
 [作业存储](#作业存储)|job stores
+[任务调度](#任务调度)|executor
 https://www.cnblogs.com/quijote/p/4385774.html
 https://www.cnblogs.com/luxiaojun/p/6567132.html
 https://apscheduler.readthedocs.io/en/latest/userguide.html
@@ -44,25 +45,35 @@ scheduler = BlockingScheduler()
 ```
 
 # 作业存储
-### job stores
+> scheduler维护自己的executor和jobstore表
+### 种类
+* MemoryJobStore：没有序列化，jobs就存在内存里，增删改查也都是在内存中操作
+* SQLAlchemyJobStore：所有sqlalchemy支持的数据库都可以做为backend，增删改查操作转化为对应backend的sql语句
+* MongoDBJobStore：用mongodb作backend
+* RedisJobStore: 用redis作backend
+### 实例化
 ```python
-from pytz import utc
-
-from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.jobstores.mongodb import MongoDBJobStore
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
-from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
-
-# scheduler维护自己的executor和jobstore表
 jobstores = {
     'mongo': MongoDBJobStore(),
     'default': SQLAlchemyJobStore(url='sqlite:///jobs.sqlite')
 }
-# 多进程实现(每个job在运行时，是通过一个进程池来作为worker实际执行的，这个进程池最大size是20)
+# jobstore提供给scheduler一个序列化jobs的统一抽象，提供对scheduler中job的增删改查接口
+```
+
+# 任务调度
+> 每个job在运行时，是通过一个进程池来作为worker实际执行的
+### 种类
+### 实例化
+```
 executors = {
     'default': ThreadPoolExecutor(20),
     'processpool': ProcessPoolExecutor(5)
 }
+```
+
+
 job_defaults = {
     'coalesce': False,
     'max_instances': 3
