@@ -7,8 +7,6 @@
 [作业存储](#作业存储)|job stores
 [任务调度](#任务调度)|executor
 [触发器](#触发器)|trigger
-https://www.cnblogs.com/luxiaojun/p/6567132.html
-https://apscheduler.readthedocs.io/en/latest/userguide.html
 ---
 
 # 定义
@@ -108,12 +106,16 @@ job_defaults参数定义了一些特殊行为:
    * 时间间隔
    * cronjob(与unix crontab格式兼容，最为强大)
 ### 实例化
-```
-
 > 每隔5s的任务
-* scheduler.add_job(func=aps_test, args=('定时任务',), trigger='cron', second='*/5')
+```python
+* scheduler.add_job(func=xxx, args=('定时任务(参数1)',), trigger='cron', second='*/5')
+```
 > 12s后
-* scheduler.add_job(func=aps_test, args=('一次性任务',), next_run_time=datetime.datetime.now() + datetime.timedelta(seconds=12))
+```python
+* scheduler.add_job(func=xxx, args=('一次性任务(参数1)', '(参数2)'), next_run_time=datetime.datetime.now() + datetime.timedelta(seconds=12))
+```
 > 每3s
-* scheduler.add_job(func=aps_test, args=('循环任务',), trigger='interval', seconds=3)
+```python
+* scheduler.add_job(func=xxx, args=('循环任务(参数1)',), trigger='interval', seconds=3)
+```
 ##### ▲调用start函数后，job()并不会立即开始执行。而是等待3s后，才会被调度执行
