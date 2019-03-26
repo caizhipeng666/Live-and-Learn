@@ -7,6 +7,7 @@
 [作业存储](#作业存储)|job stores
 [任务调度](#任务调度)|executor
 [触发器](#触发器)|trigger
+[监听](#监听)|日志
 [Example](#Example)|实战
 
 ---
@@ -85,6 +86,16 @@ job_defaults = {
 ```python
 scheduler = BackgroundScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults, timezone=utc)
 ```
+> 暂停作业:
+```python
+apsched.job.Job.pause()  # scheduler.pause()
+apsched.schedulers.base.BaseScheduler.pause_job()  # scheduler.pause_job('my_job_id')
+```
+> 恢复作业:
+```python
+apsched.job.Job.resume()  
+apsched.schedulers.base.BaseScheduler.resume_job()
+```
 > 默认情况下调度器会等待所有正在运行的作业完成后，关闭所有的调度器和作业存储。如果你不想等待，可以将wait选项设置为False。
 ```python
 scheduler.shutdown()
@@ -138,6 +149,29 @@ sched.add_job(my_job, 'cron', month='6-8,11-12', day='3rd fri', hour='0-3')
 sched.add_job(my_job(), 'cron', day_of_week='mon-fri', hour=5, minute=30,end_date='2014-05-30')
 ```
 
+# 监听
+>  当job抛出异常时，APScheduler会默默的把他吞掉，不提供任何提示
+### 种类
+* job – the job instance in question
+* scheduled_run_time – the time when the job was scheduled to be run
+* retval – the return value of the successfully executed job
+* exception – the exception raised by the job
+* traceback – the traceback object associated with the exception
+### ∴我们必须知晓程序的任何差错。→注册listener，可以监听一些事件
+* job抛出异常
+* job没有来得及执行
+```python
+def my_listener(event):
+    err_logger = logging.getLogger('schedErrJob')
+    if event.exception:
+        err_logger.exception('%s error.', str(ev.job))
+    else:
+        err_logger.info('%s miss', str(ev.job))
+
+scheduler.add_listener(my_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
+```
+###
+
 # Example
 ```python
 import time
@@ -153,3 +187,4 @@ sched.start()
 sched.remove_job('my_job_id')
 ```
 ##### ▲调用start函数后，job()并不会立即开始执行。而是等待3s后，才会被调度执行
+##### ▲当job不以daemon模式运行时，并且APScheduler也不是daemon的，那么在关闭脚本时，Ctrl + C是不奏效的，必须kill才可以
