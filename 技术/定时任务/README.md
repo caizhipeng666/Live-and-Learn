@@ -6,6 +6,7 @@
 [控制器](#控制器)| Scheduler()
 [作业存储](#作业存储)|job stores
 [任务调度](#任务调度)|executor
+[触发器](#触发器)|trigger
 https://www.cnblogs.com/quijote/p/4385774.html
 https://www.cnblogs.com/luxiaojun/p/6567132.html
 https://apscheduler.readthedocs.io/en/latest/userguide.html
@@ -17,9 +18,9 @@ https://apscheduler.readthedocs.io/en/latest/userguide.html
 ### 组成
 * scheduler 控制器
 * job stores 作业存储   
-   (1)默认的作业存储是把作业保存在内存中，(可以设置为保存在数据库中)。   
-   (2)一个作业的数据讲在保存在持久化作业存储时被序列化，并在加载时被反序列化。   
-   (3)🔺调度器不能分享同一个作业存储   
+   * 默认的作业存储是把作业保存在内存中，(可以设置为保存在数据库中)。   
+   * 一个作业的数据讲在保存在持久化作业存储时被序列化，并在加载时被反序列化。   
+   * 🔺调度器不能分享同一个作业存储   
 * executors 执行者
 > 处理作业的运行，在一个线程或者进程池来进行，当作业完成时，执行器将会通知调度器
 * triggers 触发器
@@ -72,6 +73,10 @@ executors = {
     'processpool': ProcessPoolExecutor(5)
 }
 ```
+
+# 触发器
+### 种类
+### 实例化
 ```
 job_defaults = {
     'coalesce': False,
