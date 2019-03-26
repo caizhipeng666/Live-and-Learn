@@ -161,6 +161,8 @@ sched.add_job(my_job(), 'cron', day_of_week='mon-fri', hour=5, minute=30,end_dat
 * job抛出异常
 * job没有来得及执行
 ```python
+from apscheduler.events import EVENT_JOB_EXECUTED, EVENT_JOB_ERROR
+
 def my_listener(event):
     err_logger = logging.getLogger('schedErrJob')
     if event.exception:
@@ -169,6 +171,17 @@ def my_listener(event):
         err_logger.info('%s miss', str(ev.job))
 
 scheduler.add_listener(my_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
+```
+### 如果需要查看详细日志
+```python
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S',
+                    filename='log1.txt',
+                    filemode='a')
+scheduler.add_job(func=aps_test, args=('定时任务',), trigger='cron', second='*/5')
+scheduler._logger = logging
+scheduler.start()
 ```
 ### ❌需要动态引入一次依赖包logging(import logging)
 
