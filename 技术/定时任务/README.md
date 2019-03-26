@@ -7,7 +7,6 @@
 [作业存储](#作业存储)|job stores
 [任务调度](#任务调度)|executor
 [触发器](#触发器)|trigger
-https://www.cnblogs.com/quijote/p/4385774.html
 https://www.cnblogs.com/luxiaojun/p/6567132.html
 https://apscheduler.readthedocs.io/en/latest/userguide.html
 ---
@@ -66,6 +65,8 @@ jobstores = {
 # 任务调度
 > 每个job在运行时，是通过一个进程池来作为worker实际执行的
 ### 种类
+   * threadpool
+   * processpoll
 ### 实例化
 ```
 executors = {
@@ -76,11 +77,16 @@ executors = {
 
 # 触发器
 ### 种类
+    > 一个任务何时被触发
+   * 日期
+   * 时间间隔
+   * cronjob(与unix crontab格式兼容，最为强大)
 ### 实例化
 ```
 job_defaults = {
     'coalesce': False,
-    'max_instances': 3
+    'max_instances': 3,
+    'misfire_grace_time': 30
 }
     """
     job_defaults参数定义了一些特殊行为：
