@@ -1,6 +1,6 @@
 # 高级ORM用法
-* [#Case](#Case)
-* [#When](#When)
+* [Case](#Case)
+* [When](#When)
 ---
 
 
