@@ -7,6 +7,8 @@
 [作业存储](#作业存储)|job stores
 [任务调度](#任务调度)|executor
 [触发器](#触发器)|trigger
+[Example](#Example)|实战
+
 ---
 
 # 定义
@@ -83,6 +85,11 @@ job_defaults = {
 ```python
 scheduler = BackgroundScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults, timezone=utc)
 ```
+> 默认情况下调度器会等待所有正在运行的作业完成后，关闭所有的调度器和作业存储。如果你不想等待，可以将wait选项设置为False。
+```python
+scheduler.shutdown()
+scheduler.shutdown(wait=False)
+```
 
 job_defaults参数定义了一些特殊行为:   
 * 1. 某个job积攒了好几次没有实际运行(如系统挂了5分钟)   
@@ -102,9 +109,9 @@ job_defaults参数定义了一些特殊行为:
 # 触发器
 ### 种类
     > 一个任务何时被触发
-   * 日期
-   * 时间间隔
-   * cronjob(与unix crontab格式兼容，最为强大)
+   * 日期(date,最少用)
+   * interval(时间间隔)
+   * cron(与unix crontab格式兼容,最为强大)
 ### 实例化
 > 每隔5s的任务
 ```python
@@ -117,5 +124,32 @@ job_defaults参数定义了一些特殊行为:
 > 每3s
 ```python
 * scheduler.add_job(func=xxx, args=('循环任务(参数1)',), trigger='interval', seconds=3)
+```
+> 2017年3月22日17时19分07秒执行
+```python
+sched.add_job(my_job, 'cron', year=2017,month = 03,day = 22,hour = 17,minute = 19,second = 07)
+```
+> 在6,7,8,11,12月份的第三个星期五的00:00,01:00,02:00,03:00执行
+```python
+sched.add_job(my_job, 'cron', month='6-8,11-12', day='3rd fri', hour='0-3')
+```
+> 从星期一到星期五5:30（AM）直到2014-05-30 00:00:00
+```python
+sched.add_job(my_job(), 'cron', day_of_week='mon-fri', hour=5, minute=30,end_date='2014-05-30')
+```
+
+# Example
+```python
+import time
+from apscheduler.schedulers.blocking import BlockingScheduler
+ 
+def my_job():
+    print time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+ 
+sched = BlockingScheduler()
+sched.add_job(my_job, 'interval', seconds=5)
+sched.start()
+
+sched.remove_job('my_job_id')
 ```
 ##### ▲调用start函数后，job()并不会立即开始执行。而是等待3s后，才会被调度执行
