@@ -2,6 +2,7 @@
 --- | ---
 [多数据库](#多数据库) | 配置&使用
 [加悲观锁](#加悲观锁) | select_for_update()
+[数据库连接](#数据库连接数处理) | django.db.close_old_connections()
 ---
 
 # 多数据库
@@ -108,5 +109,24 @@ python manage.py migrate --database=info
 ---
 
 # 加悲观锁
-
+```python
 queryset.objects.select_for_update()
+```
+
+# 数据库连接数处理
+```
+# django ORM中用到的数据库连接来源
+connections = ConnectionHandler()
+
+# 请求开始之前重置所有连接
+def reset_queries(**kwargs):
+    for conn in connections.all():
+        conn.queries_log.clear()
+signals.request_started.connect(reset_queries)
+
+# 请求开始结束之前遍历所有已存在连接，关闭不可用的连接
+def close_old_connections(**kwargs):
+    for conn in connections.all():
+        conn.close_if_unusable_or_obsolete()
+signals.request_started.connect(close_old_connections)
+```
