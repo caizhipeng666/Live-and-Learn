@@ -4,7 +4,7 @@ module|
 ---|
 [构建类](#class)|
 [运行](#start)|
-[等待](#join(timeout=None))
+[等待](#join)
 
 ---
 attribute
@@ -38,8 +38,8 @@ print(t.is_alive())
 * args须为iterable
 > 所以此处为(5,） 而不能是5或者(5)
 
-# join(timeout=None)
-> 等待直到线程终止   
+# join
+> join(timeout=None)等待直到线程终止   
 > * 正常   
 > * 非正常终止   
 > * 发生超时   
