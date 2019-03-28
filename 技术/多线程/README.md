@@ -65,3 +65,11 @@ print(t.is_alive())
 # daemon
 > A boolean value indicating whether this thread is a daemon thread (True) or not (False). This must be set before start() is called, otherwise RuntimeError is raised. Its initial value is inherited from the creating thread; the main thread is not a daemon thread and therefore all threads created in the main thread default to daemon = False   
 > The entire Python program exits when no alive non-daemon threads are left
+```python
+t = threading.Thread()
+t.daemon = True
+print(t.daemon)
+
+# 老方法(遗弃)
+t.setDaemon(True)
+```
