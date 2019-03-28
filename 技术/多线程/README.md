@@ -1,5 +1,4 @@
-Threading
-
+# Threading
 module|说明
 ---|---
 [构建类](#class)|threading.Thread()
@@ -12,6 +11,10 @@ attribute
 * [存活](#is_alive())
 * [守护](#daemon)
 
+---
+more|说明
+---|---
+[索对象](#lock对象)|threading.Lock()
 
 # class
 ```python
@@ -89,3 +92,15 @@ print(t.daemon)
 # 老方法(遗弃)
 t.setDaemon(True)
 ```
+
+---
+# lock对象
+> acquire()和release()   
+---
+1. acquire
+> acquire(blocking=True, timeout=-1)
+* blocking为Ture:一直阻塞直到锁设置为unlock状态,然后立即返回True并把锁设为lock状态
+* blocking为False:不会被阻塞,返回值会有差异;当在lock状态下时返回False,其他状态下将锁设为lock状态并返回True
+2. release
+> 释放lock;可在任何线程中调用(不局限于获取锁的线程)
+---
