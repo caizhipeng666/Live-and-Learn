@@ -4,7 +4,7 @@ module|
 ---|
 [构建类](#class)|
 [运行](#start)|
-[等待](#join)
+[等待](#join(timeout=None))
 
 ---
 attribute
