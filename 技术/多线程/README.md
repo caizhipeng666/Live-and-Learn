@@ -28,5 +28,6 @@ Classify |
 --- | 
 [官方文档](https://docs.python.org/3/library/threading.html "官方文档") |
 [中文文档](https://cloud.tencent.com/developer/section/1371311 "中文网") |
+[实现示例](https://blog.csdn.net/Mr_Slower/article/details/83958758 "示例") |
 
 ---
