@@ -55,14 +55,14 @@ threads = []
 nloops = range(len(loops))
 
 for i in nloops:
-    t = threading.Thread(target=loop, args=(i, loops[i]))  # 循环 实例化2个Thread类，传递函数及其参数，并将线程对象放入一个列表中
+    t = threading.Thread(target=loop, args=(i, loops[i]))  # 循环实例化3个Thread类,将线程对象放入一个列表中
     threads.append(t)
 
 for i in nloops:
-    threads[i].start()  # 循环 开始线程
+    threads[i].start()  # 循环开始线程
 
 for i in nloops:
-    threads[i].join()  # 循环 join()方法可以让主线程等待所有的线程都执行完毕。
+    threads[i].join()  # 循环join()让主线程等待所有线程执行完毕。
 ```
 
 
