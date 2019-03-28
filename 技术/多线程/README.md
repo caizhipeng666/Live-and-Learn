@@ -7,11 +7,10 @@ module|
 [等待](#join)
 
 ---
-attribute|
----|
-[名称](#name)|
-[存活](#is_alive())|
-[守护](#daemon)|
+attribute
+* [名称](#name)
+* [存活](#is_alive())
+* [守护](#daemon)
 
 
 # class
@@ -46,7 +45,24 @@ print(t.is_alive())
 > * 发生超时   
 >> 通过调用is_alive方法来判断它是否发生超时
 ```python
+def loop(nloop,nsec):
+    print('开始循环',nloop,'at:',ctime())
+    sleep(nsec)
+    print('循环',nloop,'结束于：',ctime())
 
+loops = [1,2,3]
+threads = []
+nloops = range(len(loops))
+
+for i in nloops:
+    t = threading.Thread(target=loop, args=(i, loops[i]))  # 循环 实例化2个Thread类，传递函数及其参数，并将线程对象放入一个列表中
+    threads.append(t)
+
+for i in nloops:
+    threads[i].start()  # 循环 开始线程
+
+for i in nloops:
+    threads[i].join()  # 循环 join()方法可以让主线程等待所有的线程都执行完毕。
 ```
 
 
