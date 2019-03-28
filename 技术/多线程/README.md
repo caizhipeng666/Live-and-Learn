@@ -4,6 +4,14 @@ module|
 ---|
 [构建类](#class)|
 [运行](#start)|
+[等待](#join)
+
+---
+attribute|
+---|
+[名称](#name)|
+[存活](#is_alive())|
+[守护](#daemon)|
 
 
 # class
@@ -31,3 +39,29 @@ print(t.is_alive())
 * args须为iterable
 > 所以此处为(5,） 而不能是5或者(5)
 
+# join(timeout=None)
+> 等待直到线程终止   
+> * 正常   
+> * 非正常终止   
+> * 发生超时   
+>> 通过调用is_alive方法来判断它是否发生超时
+```python
+
+```
+
+
+# name
+```python
+t = threading.Thread()
+t.name = 'xxx'
+print(t.name)
+```
+# is_alive()
+```python
+t = threading.Thread()
+t.start()
+print(t.is_alive())
+```
+# daemon
+> A boolean value indicating whether this thread is a daemon thread (True) or not (False). This must be set before start() is called, otherwise RuntimeError is raised. Its initial value is inherited from the creating thread; the main thread is not a daemon thread and therefore all threads created in the main thread default to daemon = False   
+> The entire Python program exits when no alive non-daemon threads are left
