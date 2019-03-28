@@ -1,10 +1,10 @@
 Threading
 
-module|
----|
-[构建类](#class)|
-[运行](#start)|
-[等待](#join)
+module|说明
+---|---
+[构建类](#class)|threading.Thread()
+[运行](#start)|.start()
+[等待](#join)|.join()
 
 ---
 attribute
