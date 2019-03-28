@@ -21,11 +21,11 @@ class threading.Thread(group=None, target=None, name=None, args=(), kwargs={}, *
 # start
 > 启动线程, 最多只能调用一次(因为run()方法执行后会删除对象的target属性和args属性),由他来调用对象的run()方法
 ```python
-def test1(x):
-    print('test1-->{}'.format(x))
-    time.sleep(3)
-    print('test1 end'
+def test(x):
+    print(x)
 
-t = threading.Thread(target=test1, name='fuck', args=(5,6,7), daemon=True)  # args须为iterable
+t = threading.Thread(target=test, name='test', args=(5,6,7), daemon=True)
 t.start()
 ```
+* args须为iterable
+
