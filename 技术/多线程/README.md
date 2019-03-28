@@ -24,8 +24,10 @@ class threading.Thread(group=None, target=None, name=None, args=(), kwargs={}, *
 def test(x):
     print(x)
 
-t = threading.Thread(target=test, name='test', args=(5,6,7), daemon=True)
+t = threading.Thread(target=test, name='test', args=(5,), daemon=True)
 t.start()
+print(t.is_alive())
 ```
 * args须为iterable
+> 所以此处为(5,） 而不能是5或者(5)
 
