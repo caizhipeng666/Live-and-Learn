@@ -29,6 +29,7 @@ class threading.Thread(group=None, target=None, name=None, args=(), kwargs={}, *
 * daemon:如果指定,那就会显性的设定是否为守护线程,如果为None,则从创建他的线程中继承
 
 # start
+### 每个thread 对象都只能被调用1次start()
 > 启动线程, 最多只能调用一次(因为run()方法执行后会删除对象的target属性和args属性),由他来调用对象的run()方法
 ```python
 def test(x):
@@ -59,13 +60,11 @@ nloops = range(len(loops))
 
 for i in nloops:
     t = threading.Thread(target=loop, args=(i, loops[i]))  # 循环实例化3个Thread类,将线程对象放入一个列表中
+    threads[i].start()  # 循环开始线程
     threads.append(t)
 
-for i in nloops:
-    threads[i].start()  # 循环开始线程
-
-for i in nloops:
-    threads[i].join()  # 循环join()让主线程等待所有线程执行完毕。
+for t in threads:
+    t.join()  # 循环join()让主线程等待所有线程执行完毕。
 ```
 
 
