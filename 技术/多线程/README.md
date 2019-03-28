@@ -24,10 +24,9 @@ CPython实现细节：
 * 但是，如果要同时运行多个I / O限制任务，线程仍然是一个合适的模型
 
 ---
-Classify | URL
---- | ---
-官网 | [https://docs.python.org/3/library/threading.html](https://docs.python.org/3/library/threading.html "官方文档")
-中文官网翻译 | [https://cloud.tencent.com/developer/section/1371311](https://cloud.tencent.com/developer/section/1371311 "中文网")
-其他用例 | [https://www.cnblogs.com/hiwuchong/p/8673183.html](https://www.cnblogs.com/hiwuchong/p/8673183.html "其他用例")
+Classify |
+--- | 
+[官方文档](https://docs.python.org/3/library/threading.html "官方文档") |
+[中文文档](https://cloud.tencent.com/developer/section/1371311 "中文网") |
 
 ---
