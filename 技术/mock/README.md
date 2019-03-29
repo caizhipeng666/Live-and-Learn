@@ -57,13 +57,12 @@ responses.add_callback(
 ```python
 import pook
 
-@pook.get('http://xxx/500', reply=204)
+@pook.get('http://xxx/500', reply=204, json={...})
 @pook.get('http://xxx/400', reply=200)
 def fetch(url):
     return requests.get(url)
     
 res = fetch('http://xxx/400')
-print('#1 status:', res.status_code)
 res = fetch('http://xxx/500')
-print('#2 status:', res.status_code)
+print('status:', res.status_code)
 ```
