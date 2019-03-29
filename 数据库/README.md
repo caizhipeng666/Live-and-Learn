@@ -9,6 +9,11 @@
 # mysql
 * [更新](#mysql更新)
 * [替換](#mysql替換)
+* [错误](#mysql错误)
+
+错误码|说明
+---|---
+1267(#1267)| 插入错误
 
 ## mysql更新
 1. 修改数据库级别
@@ -30,3 +35,10 @@ where ...;
 ```
 > ▲两个xx字段要相同
 
+---
+# mysql错误
+## 1267
+> 插入数据库错误：1267错误
+```
+ALTER TABLE xxx表 CONVERT TO CHARACTER SET utf8;
+```
