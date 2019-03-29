@@ -6,7 +6,9 @@
 ---
 # Responses
 ```python
-def mock_test(self):
+import responses
+
+def mock_test():
     with responses.RequestsMock(assert_all_requests_are_fired=False) as resp:
         # 同样使用add()方法定义
         resp.add(resp.GET,  # 可用resp.add_callback(...)
@@ -53,5 +55,15 @@ responses.add_callback(
 
 # Pook
 ```python
+import pook
 
+@pook.get('http://xxx/500', reply=204)
+@pook.get('http://xxx/400', reply=200)
+def fetch(url):
+    return requests.get(url)
+    
+res = fetch('http://xxx/400')
+print('#1 status:', res.status_code)
+res = fetch('http://xxx/500')
+print('#2 status:', res.status_code)
 ```
