@@ -17,7 +17,7 @@ text-decoration: none;
 ```
 
 无法选中文字
-* <head css>
+*     <head css>
 * --为多浏览器兼容
 ```html
 .cannotselect {
