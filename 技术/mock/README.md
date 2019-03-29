@@ -59,10 +59,12 @@ import pook
 
 @pook.get('http://xxx/500', reply=204, json={...})
 @pook.get('http://xxx/400', reply=200)
-def fetch(url):
+def mock(url):
     return requests.get(url)
     
-res = fetch('http://xxx/400')
-res = fetch('http://xxx/500')
+res = mock('http://xxx/400')
+res = mock('http://xxx/500')
 print('status:', res.status_code)
+
+@mock
 ```
