@@ -14,7 +14,7 @@
 
 错误码|说明
 ---|---
-[1267](#1267)| 插入错误
+[1267](#1267)| 插入错误 (也有可能是django.db.utils.OperationalError: (1366, "Incorrect string value:))
 
 ## mysql创建
 * 设置默认值为当前时间
