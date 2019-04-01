@@ -37,3 +37,19 @@ sudo vi /etc/redis/redis.conf
 ```
 sudo /etc/init.d/redis-server restart
 ```
+---
+# 使用
+方法|
+---|
+[登录](#登录)|
+
+---
+### 登录
+1. 本地
+```
+redis-cli -a 密码
+```
+2. 远程
+```
+redis-cli -a 密码 -h ip地址
+```
