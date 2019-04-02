@@ -6,6 +6,7 @@
 ---
 
 # 多数据库
+> python manage.py dbshell  # 操作数据库
 1. setting中添加多数据库
 ```python
 DATABASES = {
