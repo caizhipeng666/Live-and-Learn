@@ -15,7 +15,7 @@ datetime.date.today()
 ```
 datetime.datetime.now()
 ```
-* 加一天/减一天
+* 加一天/减一天(hours小时 minutes分钟)
 ```
 datetime.timedelta(days=1)   # +1
 datetime.timedelta(days=-1)  # -1
