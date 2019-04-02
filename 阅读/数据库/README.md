@@ -18,6 +18,10 @@ select * limit xx
 3. on
 ```
     先判断on: 将on中的逻辑表达式应用到基础表的各行，筛选出满足on的各行 →→→ 生成新表
+    生成新表: 通过join类型过滤
+             1.left join on x.id = xx.id
+             2.right join on
+             3.outer join
 ```
 4. where
 5. group by
