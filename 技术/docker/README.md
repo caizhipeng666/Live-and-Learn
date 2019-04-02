@@ -7,3 +7,6 @@
 ```
 docker ps
 ```
+```
+docker images
+```
