@@ -103,6 +103,10 @@ class DatabaseAppsRouter(object):
 ```
 
 4. 更新数据库
+> 针对某个app单独制作migrations
+```python
+ python manage.py makemigrations app_name
+```
 ```python
 python manage.py migrate --database=info
 ```
