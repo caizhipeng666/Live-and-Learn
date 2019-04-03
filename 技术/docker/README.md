@@ -44,8 +44,9 @@ Docker架构中用户与Docker Daemon建立通信的客户端。
    * Docker 仓库 - Docker registeries
 
    * Docker 容器 - Docker containers
+   > 镜像可以用来创建Docker容器，一个镜像可以创建很多容器
 ---
-
+* DockerFile
 # 
 ```
 docker ps
