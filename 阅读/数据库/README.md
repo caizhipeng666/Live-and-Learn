@@ -7,6 +7,7 @@ classify|
 ---
 # mysql
 * [sql执行顺序](#mysql执行顺序)
+* [sql表连接](#mysql表连接)
 
 ### mysql执行顺序
 select * limit xx
@@ -30,3 +31,22 @@ select * limit xx
 8. select
 9. distinct
 10. order by
+
+
+### mysql表连接
+1. left join
+* 观察区别(and / where)
+```
+SELECT * 
+FROM xx1 
+     LEFT JOIN xx2 ON (xx1.id = xx2.id)
+     AND xx2.id=2;
+```
+> 除了xx2.id=2的行有数据,其余行都为null →→→ 因为不符合on筛选
+```
+SELECT * 
+FROM xx1 
+     LEFT JOIN xx2 ON (xx1.id = xx2.id)
+     Where xx2.id=2;
+```
+> 只筛选出了xx2.id=2的行
