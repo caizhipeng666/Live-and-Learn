@@ -49,9 +49,14 @@ Docker架构中用户与Docker Daemon建立通信的客户端。
 
    * Docker 容器 - Docker containers
    > 镜像可以用来创建Docker容器，一个镜像可以创建很多容器
+
 ---
 * DockerFile
-
+* Docker Compose
+   > Docker Compose是Docker容器进行编排的工具，定义和运行多容器的应用，可以一条命令启动多个容器。
+   1. Dockerfile 定义应用的运行环境
+   2. Docker-compose.yml 定义组成应用的各服务
+   3. Docker-compose up 启动整个应用
 # 
 ```
 docker ps
