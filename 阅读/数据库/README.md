@@ -33,6 +33,16 @@ select * limit xx
 ```
     将唯一的值合成为一组,结果集中：每个组只有一行
 ```
+> 如果有cube/rollup选项,则再次生成超组
+* cube
+```
+    group by rollup (xx_id,xx_xxx,xx_xxxx,...)
+    
+    Group By xx_id, xx_xxx, ...
+
+    WITH Rollup Order By xx_id
+```
+* rollup
 7. having
 8. select
 9. distinct
