@@ -10,7 +10,7 @@
 * docker容器是完全使用沙箱机制，相互之间不会有任何接口   
 > 一个做好的应用容器长得就好像一个装好了一组特定应用的虚拟机一样。
 ```
-比如我现在想用MySQL那我就找个装好MySQL的容器，运行起来，那么我就可以使用 MySQL了。
+比如我现在想用MySQL那我就找个装好MySQL的容器，运行起来，那么我就可以使用MySQL了。
 而且一旦你想换台机器，直接把这个容器端起来，再放到另一个机器就好了。硬件，操作系统，运行环境什么的都不需要考虑了。
 若果利用容器的话，那么开发直接在容器里开发，提测的时候把整个容器给测试，
 测好了把改动改在容器里再上线就好了。通过容器，整个开发、测试和生产环境可以保持高度的一致。   
@@ -27,7 +27,7 @@
 ![](images/engine.png "")
 ### Docker Daemon(服务端)
 ```
-Docker架构中常驻后台的系统进程，是一个服务进程，负责接收处理用户发送的请求和管理所有的 Docker容器
+Docker架构中常驻后台的系统进程，是一个服务进程，负责接收处理用户发送的请求和管理所有的Docker容器
 ```
 > 所谓的运行Docker即代表运行Docker Daemon。
 ### Docker Client(客户端)
@@ -36,6 +36,13 @@ Docker架构中用户与Docker Daemon建立通信的客户端。
 ```
 > 扮演着docker服务端的远程控制器，可以用来控制docker的服务端进程。   
 > 大部分情况下，docker服务端和客户端运行在一台机器上。   
+
+* Docker内部构建
+   * Docker 镜像 - Docker images
+
+   * Docker 仓库 - Docker registeries
+
+   * Docker 容器 - Docker containers 
 # 
 ```
 docker ps
