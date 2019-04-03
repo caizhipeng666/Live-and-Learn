@@ -49,7 +49,7 @@ select * limit xx
 ```
 * rollup(显示所选列中值的某一层次结构的聚合)
 
-7. having(having子句在聚合后对组记录进行筛选)
+7. having(在聚合后对组记录进行筛选)
 ```
     SELECT xxx, xxxx, SUM(xxxxx)
     FROM xx
@@ -62,7 +62,7 @@ select * limit xx
 9. distinct
 
 10. order by
-
+> order by 返回的是一个游标,而不是一个虚拟表(很需要成本)
 
 ### mysql表连接
 1. left join
