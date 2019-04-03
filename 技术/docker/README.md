@@ -39,6 +39,10 @@ Docker架构中用户与Docker Daemon建立通信的客户端。
 ---
 * Docker内部构建
    * Docker 镜像 - Docker images
+   ```
+       docker pull     //从网络上下载镜像
+       docker images  //查看本地主机已经存在的镜像 
+   ```
    > 镜像=操作系统+软件运行环境+用户程序
 
    * Docker 仓库 - Docker registeries
@@ -47,6 +51,7 @@ Docker架构中用户与Docker Daemon建立通信的客户端。
    > 镜像可以用来创建Docker容器，一个镜像可以创建很多容器
 ---
 * DockerFile
+
 # 
 ```
 docker ps
