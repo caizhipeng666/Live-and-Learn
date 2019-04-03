@@ -15,7 +15,9 @@ select * limit xx
 ```
     对from的前两个表形成笛卡儿积, ✓选择相对小的表作为基础表
 ```
+
 2. join
+
 3. on
 ```
     先判断on: 将on中的逻辑表达式应用到基础表的各行，筛选出满足on的各行 →→→ 生成新表
@@ -24,11 +26,14 @@ select * limit xx
              2.right join on
              3.outer join
 ```
+
 4. where
 ```
     where是所有on筛选后的下一步筛选
 ```
+
 5. group by(某个唯一字段/下面的聚合函数)
+
 6. avg,sum...(聚合函数)
 ```
     将唯一的值合成为一组,结果集中：每个组只有一行
@@ -43,9 +48,19 @@ select * limit xx
     WITH Rollup Order By xx_id
 ```
 * rollup(显示所选列中值的某一层次结构的聚合)
-7. having
+
+7. having(having子句在聚合后对组记录进行筛选)
+```
+    SELECT xxx, xxxx, SUM(xxxxx)
+    FROM xx
+    GROUP BY xxx
+    HAVING SUM(xxx...)>1000000   # 聚合条件
+```
+
 8. select
+
 9. distinct
+
 10. order by
 
 
