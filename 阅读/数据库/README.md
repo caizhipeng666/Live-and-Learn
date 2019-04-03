@@ -34,7 +34,7 @@ select * limit xx
     将唯一的值合成为一组,结果集中：每个组只有一行
 ```
 > 如果有cube/rollup选项,则再次生成超组
-* cube
+* cube(显示所选列中值的所有组合的聚合)
 ```
     group by rollup (xx_id,xx_xxx,xx_xxxx,...)
     
@@ -42,7 +42,7 @@ select * limit xx
 
     WITH Rollup Order By xx_id
 ```
-* rollup
+* rollup(显示所选列中值的某一层次结构的聚合)
 7. having
 8. select
 9. distinct
