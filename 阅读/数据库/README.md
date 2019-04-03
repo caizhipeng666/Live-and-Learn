@@ -10,7 +10,6 @@ classify|
 * [sql表连接](#mysql表连接)
 
 ### mysql执行顺序
-select * limit xx
 1. from
 ```
     对from的前两个表形成笛卡儿积, ✓选择相对小的表作为基础表
@@ -63,6 +62,18 @@ select * limit xx
 
 10. order by
 > order by 返回的是一个游标,而不是一个虚拟表(很需要成本)
+
+11. top ✦mysql不支持这个top操作,用limit吧
+```
+    SELECT TOP 2 * FROM xx
+```
+
+12. limit
+```
+    SELECT *
+    FROM xx
+    limit 10
+```
 
 ### mysql表连接
 1. left join
