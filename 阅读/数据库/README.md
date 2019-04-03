@@ -37,7 +37,8 @@ classify|
 ```
     将唯一的值合成为一组,结果集中：每个组只有一行
 ```
-> 如果有cube/rollup选项,则再次生成超组
+> 如果有cube/rollup选项,则再次生成超组   
+![](images/cube_rollup.jpg "")
 * cube(显示所选列中值的所有组合的聚合)
 ```
     group by rollup (xx_id,xx_xxx,xx_xxxx,...)
