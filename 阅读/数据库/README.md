@@ -25,8 +25,14 @@ select * limit xx
              3.outer join
 ```
 4. where
-5. group by
+```
+    where是所有on筛选后的下一步筛选
+```
+5. group by(某个唯一字段/下面的聚合函数)
 6. avg,sum...(聚合函数)
+```
+    将唯一的值合成为一组,结果集中：每个组只有一行
+```
 7. having
 8. select
 9. distinct
