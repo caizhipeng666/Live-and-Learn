@@ -36,13 +36,16 @@ Docker架构中用户与Docker Daemon建立通信的客户端。
 ```
 > 扮演着docker服务端的远程控制器，可以用来控制docker的服务端进程。   
 > 大部分情况下，docker服务端和客户端运行在一台机器上。   
-
+---
 * Docker内部构建
    * Docker 镜像 - Docker images
+   > 镜像=操作系统+软件运行环境+用户程序
 
    * Docker 仓库 - Docker registeries
 
-   * Docker 容器 - Docker containers 
+   * Docker 容器 - Docker containers
+---
+
 # 
 ```
 docker ps
