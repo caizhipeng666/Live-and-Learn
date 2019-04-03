@@ -73,6 +73,8 @@ classify|
     SELECT *
     FROM xx
     limit 10
+    (limit 5,10)
+    (limit 10,-1) -1→→→--last
 ```
 
 ### mysql表连接
