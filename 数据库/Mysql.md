@@ -45,11 +45,11 @@ data\auto.cnf
 [mysqld]
 skip-grant-tables  # 添加
 ```
-> 即可跳过登录，直接重设密码
+> 重启服务后即可跳过登录，直接重设密码
 ### 运行mysql重设密码
 ```
 mysql -u root -p
 
-update user set authentication_string=password('新密码') where user="root";
-flush priviledges;
+update mysql.user set authentication_string=password('123456') where user='root' and Host ='localhost';
+SET PASSWORD = PASSWORD(123456); 
 ```
