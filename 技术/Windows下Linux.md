@@ -17,7 +17,21 @@ Windows玩转Linux子系统
 ```
 ssh-keygen -t rsa -C "czp@xxx.com"
 ```
-
+### 换上阿里云镜像
+> vim /etc/apt/sources.list
 ```
-
+deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse 
+deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse 
+deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse 
+deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse 
+deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse 
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse 
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse 
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse 
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse 
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
+```
+### 更新下Ubuntu
+```
+sudo apt-get update
 ```
