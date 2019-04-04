@@ -4,6 +4,7 @@
 * [使用](#使用)
 
 # 安装
+> [windows](https://blog.csdn.net/qq_20084101/article/details/82355818?utm_source=blogxgwz1#1-%E4%BD%BF%E7%94%A8-msi-%E5%AE%89%E8%A3%85-redis)
 1. 获取服务器
 ```
 sudo apt-get install redis-server
