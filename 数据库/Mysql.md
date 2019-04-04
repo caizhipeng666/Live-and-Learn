@@ -51,5 +51,5 @@ skip-grant-tables  # 添加
 mysql -u root -p
 
 update mysql.user set authentication_string=password('123456') where user='root' and Host ='localhost';
-SET PASSWORD = PASSWORD(123456); 
 ```
+> 去掉ini跳过登录,重启服务~
