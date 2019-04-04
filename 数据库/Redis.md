@@ -53,3 +53,6 @@ redis-cli -a 密码
 ```
 redis-cli -a 密码 -h ip地址
 ```
+### 基本命令
+> [常用](http://doc.redisfans.com/)
+
