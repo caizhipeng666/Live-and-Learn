@@ -40,6 +40,12 @@ net start mysql
 ```
 data\auto.cnf
 ```
+> 没有密码存在的情况： 修改ini
+```
+[mysqld]
+skip-grant-tables  # 添加
+```
+> 即可跳过登录，直接重设密码
 ### 运行mysql重设密码
 ```
 mysql -u root -p
