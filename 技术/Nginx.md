@@ -15,6 +15,7 @@ sudo apt-get install nginx
 
 sudo service nginx start
 ```
+> 检测有无安装成功: whereis nginx   
 > Nginx的配置 → → /etc/nginx/nginx.conf
 
 # 配置
@@ -33,4 +34,10 @@ sudo service nginx configtest
 4. 重启
 ```
 sudo service nginx restart
+```
+
+
+gunicorn
+```
+gunicorn -w4 -b0:8080 xxx.wsgi
 ```
