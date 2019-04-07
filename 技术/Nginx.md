@@ -11,4 +11,8 @@ sudo apt-get install nginx
 /etc/nginx：存放配置文件
 /usr/share/nginx：存放静态文件
 /var/log/nginx：存放日志
+
+sudo service nginx start
 ```
+> Nginx的配置 → → /etc/nginx/nginx.conf
+
