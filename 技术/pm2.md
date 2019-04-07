@@ -6,6 +6,7 @@
 ### 安装
 ```
 sudo apt-get install nodejs
+sudo apt install nodejs-legacy
 sudo npm install -g pm2
 ```
 > -g 全局
