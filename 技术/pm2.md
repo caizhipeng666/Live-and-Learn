@@ -12,6 +12,11 @@ sudo npm install -g pm2
 > -g 全局
 
 ```
+sudo npm config set registry https://registry.npm.taobao.org
+```
+> 切换源,否则巨慢
+
+```
 npm install -g pm2
 ```
 
