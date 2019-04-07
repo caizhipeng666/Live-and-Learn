@@ -1,6 +1,7 @@
 # Nginx
 
 * [安装](#安装)
+* [配置](#配置)
 
 # 安装
 1. Ubuntu
@@ -16,3 +17,20 @@ sudo service nginx start
 ```
 > Nginx的配置 → → /etc/nginx/nginx.conf
 
+# 配置
+1. 添加conf
+```
+sudo vim /etc/nginx/sites-available/xxx.conf
+```
+2. 不知道有没用(激活)
+```
+sudo ln -s /etc/nginx/sites-available/xxx.conf /etc/nginx/sites-enabled/xxx.conf
+```
+3. 测试配置
+```
+sudo service nginx configtest
+```
+4. 重启
+```
+sudo service nginx restart
+```
