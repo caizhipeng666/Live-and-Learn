@@ -11,5 +11,15 @@ sudo npm install -g pm2
 > -g 全局
 
 ```
-npm i pm2 -g
+npm install -g pm2
+```
+
+### 使用
+1. 写好shell脚本/ json配置
+```
+
+```
+2. 载入
+```
+
 ```
