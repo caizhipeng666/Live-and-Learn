@@ -166,9 +166,9 @@ from apscheduler.events import EVENT_JOB_EXECUTED, EVENT_JOB_ERROR
 def my_listener(event):
     err_logger = logging.getLogger('schedErrJob')
     if event.exception:
-        err_logger.exception('%s error.', str(ev.job))
+        err_logger.exception('error')
     else:
-        err_logger.info('%s miss', str(ev.job))
+        err_logger.info('miss')
 
 scheduler.add_listener(my_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
 ```
