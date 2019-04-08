@@ -55,6 +55,25 @@ docker run -d -p 80:80 image_name
 docker commit image_name new_name
 ```
 
+3. 进入容器
+```
+docker attach -it ps_id bash
+docker exec ps_id
+```
+> exec是打开新的终端，会启动新的进程
+
+4. 查看容器输出
+```
+docker logs -f ps_id
+```
+
+5. 容器操作
+```
+docker stop/start/restart ps_id
+```
+* 参数
+   * --restart=always   任何原因退出都立即重启
+   * --restart=on-failure:3   退出代码非0时，最多重启3次 
 # DockerFile
 ```
 FROM python:3.6.6
