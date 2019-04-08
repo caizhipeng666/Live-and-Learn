@@ -48,10 +48,11 @@ Docker架构中用户与Docker Daemon建立通信的客户端。
    * Docker 仓库 - Docker registeries
 
    * Docker 容器 - Docker containers
-   > 镜像可以用来创建Docker容器，一个镜像可以创建很多容器   
+   > runtime用docker image来创建Docker容器，一个镜像可以创建很多容器   
 ![](images/container.jpg "") ![](images/image.jpg "")
 ---
 * DockerFile
+   > DockerFile是包含若干命令的文本文件，可以通过它来创建出docker image
 * Docker Compose
    > Docker Compose是Docker容器进行编排的工具，定义和运行多容器的应用，可以一条命令启动多个容器。
    1. Dockerfile 定义应用的运行环境
