@@ -6,21 +6,7 @@
 
 ---
 # 概念
-
-* docker容器是完全使用沙箱机制，相互之间不会有任何接口   
-> 一个做好的应用容器长得就好像一个装好了一组特定应用的虚拟机一样。
-```
-比如我现在想用MySQL那我就找个装好MySQL的容器，运行起来，那么我就可以使用MySQL了。
-而且一旦你想换台机器，直接把这个容器端起来，再放到另一个机器就好了。硬件，操作系统，运行环境什么的都不需要考虑了。
-若果利用容器的话，那么开发直接在容器里开发，提测的时候把整个容器给测试，
-测好了把改动改在容器里再上线就好了。通过容器，整个开发、测试和生产环境可以保持高度的一致。   
-```
-
-* Docker守护进程可以直接与主操作系统进行通信，为各个Docker容器分配资源
-> 它将容器与主操作系统隔离，并将各个容器互相隔离。   
-> 虚拟机启动需要数分钟，而Docker容器可以在数毫秒内启动。由于没有臃肿的从操作系统，Docker可以节省大量的磁盘空间以及其他系统资源。
-
-* Docker Engine+docker hub = docker platform   
+### Docker Engine+docker hub = docker platform   
 > docker引擎是一个c/s结构的应用， 是一个基于虚拟化技术的轻量级并且功能强大的开源容器引擎管理工具。   
 > 它可以将不同的 work flow 组合起来构建成你的应用   
 
@@ -55,9 +41,9 @@ Docker架构中用户与Docker Daemon建立通信的客户端。
    > DockerFile是包含若干命令的文本文件，可以通过它来创建出docker image
 * Docker Compose
    > Docker Compose是Docker容器进行编排的工具，定义和运行多容器的应用，可以一条命令启动多个容器。
-   1. Dockerfile 定义应用的运行环境
-   2. Docker-compose.yml 定义组成应用的各服务
-   3. Docker-compose up 启动整个应用
+   1. (文件)Dockerfile 定义应用的运行环境
+   2. (文件)Docker-compose.yml 定义组成应用的各服务
+   3. (命令)Docker-compose up 启动整个应用
 # 
 ```
 docker ps
