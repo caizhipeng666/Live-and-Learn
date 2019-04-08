@@ -5,6 +5,7 @@
 * [容器](#容器)
 * [DockerFile](#DockerFile)
 * [服务器](#服务器)
+* [仓库](#仓库)
 
 ---
 # 实例
@@ -42,7 +43,7 @@ docker run -d -p 80:80 image_name
 ```
 * 参数
    * -d: 后台
-   * -p: 端口映射 docker容器：host端口
+   * -p: 端口映射 host端口：docker镜像端口
    * -i: 交互式
    * -t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用
    * --nam: 要在run --name 其他参数
@@ -89,4 +90,28 @@ CMD python app.py ${config} --port 8080
 
 # Ubuntu
 vim /etc/systemd/multi-user.target.wants/docker.service
+```
+
+# 仓库
+> Docker Hub可以被别人访问
+```
+docker login -u dockerID
+```
+### 重命名镜像 --- 格式为 dockerID/xxx:tag
+```
+docker tag image_name czp/image_name:v1
+```
+> 去掉后面的tag的话，就会上传全部镜像层
+### 发布
+```
+docker push czp/image_name:v1
+```
+### 搭建本地仓库
+```
+docker run -d -p 5000:5000 -v /myregistry:/var/lib/registry registry:czp
+```
+* 参数：
+   * -v：挂载目录
+```
+docker tag czp/image_name:v1 registry.ip:5000/czp/image_name:v1
 ```
