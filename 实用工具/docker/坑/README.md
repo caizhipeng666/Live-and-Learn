@@ -1,6 +1,12 @@
 # Docker坑
 
+* [时区](#时区)
 * [ubuntu](#ubuntu)
+
+# 时区
+```
+export TZ=Asia/Shanghai
+```
 
 # ubuntu
 ```
