@@ -77,7 +77,8 @@ CMD python app.py ${config} --port 8080
      > COPY hom?.txt /mydir/      # ? 替代一个单字符,如："home.txt" 到 /mydir/
    * RUN command param1 param2→ 构建容器时调用
    * WORKDIR → 工作目录
-   * CMD → 构建容器后调用(多个CMD指令，也只会运行最后那个)
+   * CMD → 构建容器后默认调用(多个CMD指令，也只会运行最后那个)
+   * ENTRYPOINT → 容器启动时调用(RUN和CMD的传参会给到它，多个ENTRYPOINT只会运行最后那条)
 > 可以用docker history image_name 查看构建历史
 
 # 服务器
