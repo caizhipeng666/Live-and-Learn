@@ -72,7 +72,7 @@ CMD python app.py ${config} --port 8080
 * 参数
    * FROM <image>:<tag> → 在某个镜像上构建
    * ARG → 指定构建时的变量
-   * ENV → 设置环境变量
+   * ENV → 设置环境变量 ($ENV_name就可以检测)
    * COPY → 将本地文件添加到容器中
      > COPY hom?.txt /mydir/      # ? 替代一个单字符,如："home.txt" 到 /mydir/
    * RUN command param1 param2→ 构建容器时调用
