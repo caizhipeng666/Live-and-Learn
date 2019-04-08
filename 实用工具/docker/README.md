@@ -69,11 +69,17 @@ docker logs -f ps_id
 
 5. 容器操作
 ```
-docker stop/start/restart ps_id
+docker stop/start/restart/pause/unpause ps_id
 ```
 * 参数
    * --restart=always   任何原因退出都立即重启
    * --restart=on-failure:3   退出代码非0时，最多重启3次 
+   
+6. 删除容器
+```
+docker rm ps_id
+```
+> 批量删除 docker rm -v $(docker ps -aq -f status=exited)
 # DockerFile
 ```
 FROM python:3.6.6
