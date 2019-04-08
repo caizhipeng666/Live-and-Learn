@@ -76,6 +76,7 @@ CMD python app.py ${config} --port 8080
    * RUN command param1 param2→ 构建容器时调用
    * WORKDIR → 工作目录
    * CMD → 构建容器后调用
+> 可以用docker history image_name 查看构建历史
 
 # 服务器
 > 默认情况下，只允许本地客户端请求
