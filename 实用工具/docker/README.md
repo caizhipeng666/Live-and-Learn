@@ -36,11 +36,15 @@ docker run -d -p 80:80 image_name
 > 为啥在最后加上/bin/bash：(启动容器后启动bash)
 >> docker中必须要保持一个进程的运行，要不然整个容器就会退出
 
-
 > 在有DockerFile的目录下（✘别忘了后面的 .）
 ```
 docker build -t image_name .
 ```
+2. 构建一个新容器(要先运行一个容器)
+```
+docker commit image_name new_name
+```
+
 # DockerFile
 ```
 FROM python:3.6.6
