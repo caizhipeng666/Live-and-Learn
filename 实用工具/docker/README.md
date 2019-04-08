@@ -46,7 +46,8 @@ docker run -d -p 80:80 image_name
    * -p: 端口映射 host端口：docker镜像端口
    * -i: 交互式
    * -t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用
-   * --nam: 要在run --name 其他参数
+   * --name: 要在run --name 其他参数
+   * -h：让容器有自己的hostname
    
    * -m：设置内存限额 -m 200M (--memory-swap 默认为-m两倍)
    * --vm：分配线程 --vm 1 (--vm-bytes 200M 每个线程内存)
