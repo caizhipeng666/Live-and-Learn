@@ -51,12 +51,19 @@ COPY ./requirements.txt /tmp/
 RUN pip install --no-cache-dir --trusted-host mirrors.aliyun.com -i http://mirrors.aliyun.com/pypi/simple/ -r /tmp/requirements.txt
 COPY ./config/__init__.py ./config/${config}.ini ${target}/config/
 COPY app.py ${target}/app.py
+
+WORKDIR ${target}
+CMD python app.py ${config} --port 8080
 ```
 * 参数
    * FROM <image>:<tag> → 在某个镜像上构建
    * ARG → 指定构建时的变量
    * ENV → 设置环境变量
-   * COPY → 
+   * COPY → 将本地文件添加到容器中
+     > COPY hom?.txt /mydir/      # ? 替代一个单字符,如："home.txt" 到 /mydir/
+   * WORKDIR → 工作目录
+   * CMD → 构建容器后调用
+
 # 服务器
 > 默认情况下，只允许本地客户端请求
 ```
