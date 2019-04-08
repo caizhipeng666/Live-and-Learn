@@ -47,6 +47,9 @@ docker run -d -p 80:80 image_name
    * -i: 交互式
    * -t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用
    * --nam: 要在run --name 其他参数
+   * -m：设置内存限额 -m 200M (--memory-swap 默认为-m两倍)
+   * -vm：分配线程 --vm 1 (--vm-bytes 200M 每个线程内存)
+   * -c：cpu限额 (-cpu-shares权重)
 > 为啥在最后加上/bin/bash：(启动容器后启动bash)   
 >>      docker中必须要保持一个进程的运行，要不然整个容器就会退出
 
