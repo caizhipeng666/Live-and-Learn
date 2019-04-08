@@ -113,5 +113,9 @@ docker run -d -p 5000:5000 -v /myregistry:/var/lib/registry registry:czp
 * 参数：
    * -v：挂载目录
 ```
-docker tag czp/image_name:v1 registry.ip:5000/czp/image_name:v1
+docker tag czp/image_name:v1 registry-host:5000/czp/image_name:v1
+
+docker push registry-host:5000/czp/image_name:v1
+
+docker pull registry-host:5000/czp/image_name:v1
 ```
