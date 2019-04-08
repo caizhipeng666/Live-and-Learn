@@ -9,19 +9,30 @@
 ---
 # 实例
 ```
-docker ps
+docker ps -a
 ```
+
 # 镜像
 1. 拉取一个镜像
 ```
 docker pull image_name
 ```
+
 2. 查看所有镜像/某个镜像
 ```
 docker images
 
 docker images image_name
 ```
+
+3. 通过DockerFile构建一个镜像
+> 在有DockerFile的目录下（✘别忘了后面的 .）
+```
+docker build -t image_name .
+```
+* 参数
+   * -f：指定DockerFile位置
+   
 # 容器
 1. 运行一个容器
 ```
@@ -36,10 +47,6 @@ docker run -d -p 80:80 image_name
 > 为啥在最后加上/bin/bash：(启动容器后启动bash)
 >> docker中必须要保持一个进程的运行，要不然整个容器就会退出
 
-> 在有DockerFile的目录下（✘别忘了后面的 .）
-```
-docker build -t image_name .
-```
 2. 构建一个新容器(要先运行一个容器)
 ```
 docker commit image_name new_name
