@@ -60,6 +60,7 @@ ENV TZ Asia/Shanghai
 
 COPY ./requirements.txt /tmp/
 RUN pip install --no-cache-dir --trusted-host mirrors.aliyun.com -i http://mirrors.aliyun.com/pypi/simple/ -r /tmp/requirements.txt
+RUN apt-get update && apt-get install -y vim
 COPY ./config/__init__.py ./config/${config}.ini ${target}/config/
 COPY app.py ${target}/app.py
 
