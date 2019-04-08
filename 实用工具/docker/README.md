@@ -61,6 +61,7 @@ CMD python app.py ${config} --port 8080
    * ENV → 设置环境变量
    * COPY → 将本地文件添加到容器中
      > COPY hom?.txt /mydir/      # ? 替代一个单字符,如："home.txt" 到 /mydir/
+   * RUN command param1 param2→ 构建容器时调用
    * WORKDIR → 工作目录
    * CMD → 构建容器后调用
 
