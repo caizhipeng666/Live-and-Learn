@@ -67,12 +67,19 @@ docker exec ps_id
 docker ps -a
 ```
 
-5. 查看容器输出
+5. 容器与外界文件交互
+```
+docker cp image_id:/tmp host/tmp/
+
+docker cp c://czp/ image_id:/tmp/
+```
+
+6. 查看容器输出
 ```
 docker logs -f ps_id
 ```
 
-6. 容器操作
+7. 容器操作
 ```
 docker stop/start/restart/pause/unpause ps_id
 ```
