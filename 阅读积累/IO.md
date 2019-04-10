@@ -36,7 +36,8 @@
 1. I/O多路复用
 ```
     锁住整个进程，不断轮询所有socket(套接字是不被block的),
-    同时，kernel会监视所有select负责的socket，当任何一个socket中的数据准备就绪，select就会返回。这时进程再调用read操作(第二步)。
+    同时，kernel会监视所有select负责的socket，
+    当任何一个socket中的数据准备就绪，select就会返回。这时进程再调用read操作(第二步)。
 ```
 > 在处理更多连接数的时候,性能比较卓越;   
 > 反之,在处理较少连接数时,延迟可能更大,不如异步I/O
