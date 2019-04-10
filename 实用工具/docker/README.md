@@ -1,6 +1,5 @@
 # Docker
 
-* [实例](#实例)
 * [镜像](#镜像)
 * [容器](#容器)
 * [DockerFile](#DockerFile)
@@ -8,11 +7,6 @@
 * [仓库](#仓库)
 
 ---
-# 实例
-```
-docker ps -a
-```
-
 # 镜像
 1. 拉取一个镜像
 ```
@@ -68,12 +62,17 @@ docker exec ps_id
 ```
 > exec是打开新的终端，会启动新的进程
 
-4. 查看容器输出
+4. 查看所有容器
+```
+docker ps -a
+```
+
+5. 查看容器输出
 ```
 docker logs -f ps_id
 ```
 
-5. 容器操作
+6. 容器操作
 ```
 docker stop/start/restart/pause/unpause ps_id
 ```
@@ -81,7 +80,7 @@ docker stop/start/restart/pause/unpause ps_id
    * --restart=always   任何原因退出都立即重启
    * --restart=on-failure:3   退出代码非0时，最多重启3次 
    
-6. 删除容器
+7. 删除容器
 ```
 docker rm ps_id
 ```
