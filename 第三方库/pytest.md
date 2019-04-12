@@ -6,6 +6,11 @@
    * 测试函数以test_开头
    * 断言使用基本的assert即可
 
+# 只测试某个方法
+```
+python -m pytest xxx.py:XXX(class):xxx(def) -v
+```
+
 * 参数
    * -m
    ```
