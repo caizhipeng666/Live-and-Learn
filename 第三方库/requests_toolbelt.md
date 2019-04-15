@@ -22,7 +22,7 @@ urls = [
     # My list of URLs to get
 ]
 
-p = pool.Pool.from_urls(urls, , request_kwargs=dict(method='POST/GET/HEAD'))
+p = pool.Pool.from_urls(urls, request_kwargs=dict(method='POST/GET/HEAD'))
 # 也可以用下面的笨方法
 jobs = queue.Queue()
 for url in urls:
