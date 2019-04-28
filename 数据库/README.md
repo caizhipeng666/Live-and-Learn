@@ -32,6 +32,7 @@ update xxx表
 set 字段=值
 where 字段=条件;
 ```
+> 减少一天 set xx_time = DATE_SUB(expired_time,INTERVAL 1 DAY)
 
 ## mysql替換
 ```
