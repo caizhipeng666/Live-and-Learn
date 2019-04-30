@@ -37,6 +37,37 @@ python3 manage.py runscript xxx_xxx
 
 * json
 ```
+{
+  "apps" : [
+    {
+      "name": "xxx_scripts_1",
+      "script": "manage.py",
+      "args": "runscript xxx_scripts_1 --traceback",
+      "exec_mode": "fork",
+      "interpreter": "./venv/bin/python",
+      "interpreter_args": "-u",
+      "env": {
+        "DJANGO_SETTINGS_MODULE": "xxx.settings"
+      },
+      "autorestart": true,
+      "restart_delay": 10
+    },
+    {
+      "name": "xxx_scripts_2",
+      "script": "manage.py",
+      "args": "runscript xxx_scripts_2 --script-args xxx_func --traceback",
+      "exec_mode": "fork",
+      "interpreter": "./venv/bin/python",
+      "interpreter_args": "-u",
+      "env": {
+        "DJANGO_SETTINGS_MODULE": "xxx.settings"
+      },
+      "autorestart": true,
+      "restart_delay": 10
+    }
+  ]
+}
+
 ```
 
 2. 载入
