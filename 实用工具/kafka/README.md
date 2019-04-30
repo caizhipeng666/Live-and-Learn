@@ -14,7 +14,6 @@
 * broker：每个kafka实例(server)   
 > 一台kafka服务器就是一个broker，一个集群由多个broker组成，一个broker可以容纳多个topic   
 * Zookeeper：依赖集群保存meta信息   
-![](API.jpg "")
 
 ### Kafka集群运行在一个或多个可以跨多个数据中心的服务器上
 * 这句话表达了三个意思：
@@ -24,5 +23,8 @@
     * 这些服务器可以跨多个数据中心
 
 ### Each record consists of a key, a value, and a timestamp
-
+---
+![](API.jpg "")
+(发布、订阅、转换处理、从第三方采集数据)
+---
 # 使用
