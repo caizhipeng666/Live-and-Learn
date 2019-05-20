@@ -9,3 +9,9 @@ node --use_strict xxx.js
 ...
 ```
 ---
+2. 使用变量(注意符号是`不是')
+```javascript
+var name = 'world';
+var s = `hello, ${name}!`;
+console.log(s);
+```
