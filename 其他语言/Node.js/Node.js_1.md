@@ -15,3 +15,15 @@ var name = 'world';
 var s = `hello, ${name}!`;
 console.log(s);
 ```
+---
+3. 使用函数
+```javascript
+// 创建
+function xx(name) {
+    console.log(name + ',' + s + '!');
+}
+// 调用
+xx(111)
+// ✓暴露给其他模块
+module.exports = xx;
+```
