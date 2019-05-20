@@ -1,10 +1,10 @@
 # Node.js day-1
 1. use strict
 > 严格模式
-```javascripts
+```javascript
 node --use_strict xxx.js
 ```
-```javascripts
+```javascript
 'use strict';
 ...
 ```
