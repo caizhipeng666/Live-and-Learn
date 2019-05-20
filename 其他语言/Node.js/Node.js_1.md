@@ -25,5 +25,13 @@ function xx(name) {
 // 调用
 xx(111)
 // ✓暴露给其他模块
+//（使得其他模块可以调用该函数）
 module.exports = xx;
 ```
+```javascript
+// 另一个js调用上面的xx
+var greet = require('./test'); // './test'为相对目录！
+greet(1123)
+```
+---
+4. 使用函数
