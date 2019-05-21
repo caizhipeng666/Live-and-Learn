@@ -135,7 +135,7 @@ class ThreadManager(object):
         t.start()
         self.threads.append(t)
     def thread_join(self, timeout=60):
-        for t in slef.threads:
+        for t in self.threads:
             t.join(timeout)
         return ...
 
