@@ -551,7 +551,10 @@ cgroup_parent: m-executor-abcd
 相同的服务可以在不同的网络有不同的别名。
 29. 其它
 
-还有这些标签：cpu_shares, cpu_quota, cpuset, domainname, hostname, ipc, mac_address, mem_limit, memswap_limit, privileged, read_only, restart, shm_size, stdin_open, tty, user, working_dir
+还有这些标签：cpu_shares, cpu_quota, cpuset, 
+domainname, hostname, ipc, mac_address, 
+mem_limit, memswap_limit, privileged, read_only, restart,
+shm_size, stdin_open, tty, user, working_dir
 上面这些都是一个单值的标签，类似于使用docker run的效果。
 
     cpu_shares: 73
