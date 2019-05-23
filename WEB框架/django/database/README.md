@@ -119,7 +119,11 @@ queryset.objects.select_for_update()
 ```
 
 # 数据库连接数处理
+```python
+from django.db import close_old_connections
+django.db.close_old_connections()
 ```
+```python
 # django ORM中用到的数据库连接来源
 connections = ConnectionHandler()
 
