@@ -107,6 +107,9 @@ MySQL的filesort有3种优化算法：
 https://zm8.sm-tc.cn/?src=l4uLj8XQ0IiIiNGFipaSkJ2ekdGckJLQlZaekJyXmpGY0JKGjI6T0MfGy8nRl4uSkw==&uid=1865acafdb8c58e7601e66c9b7619d51&hid=93d01cf8eb74590bcf52910d9f269862&pos=3&cid=9&time=1491719166654&from=click&restype=1&pagetype=0000004000000402&bu=structure_web_info&query=mysql%E6%96%87%E4%BB%B6%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86&mode=&v=1&uc_param_str=dnntnwvepffrgibijbprsvdsdichei
 ```
 ```
-The sort buffer has a size of sort_buffer_size. If the sort elements for N rows are small enough to fit in the sort buffer (M+N rows if M was specified), the server can avoid using a merge file and performs an in-memory sort by treating the sort buffer as a priority queue
+The sort buffer has a size of sort_buffer_size. 
+If the sort elements for N rows are small enough to fit in the sort buffer (M+N rows if M was specified), 
+the server can avoid using a merge file 
+and performs an in-memory sort by treating the sort buffer as a priority queue
 也就是说，In memory filesort使用了优先级队列，而优先级队列的原理就是二叉堆。
 ```
