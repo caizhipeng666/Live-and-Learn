@@ -65,7 +65,10 @@ id是有序的，时间是无序的，因为有多个id，优先按id排序，�
 ```
 ```
 MySQL5.7文档中有一节——8.2.1.16 LIMIT Query Optimization，里面有这样一句话：
-If an index is not used for ORDER BY but a LIMIT clause is also present, the optimizer may be able to avoid using a merge file and sort the rows in memory using an in-memory filesort operation. For details, see The In-Memory filesort Algorithm.
+If an index is not used for ORDER BY but a LIMIT clause is also present, 
+the optimizer may be able to avoid using a merge file 
+and sort the rows in memory using an in-memory filesort operation. 
+For details, see The In-Memory filesort Algorithm.
 在ORDER BY + LIMIT的查询语句中，如果ORDER BY不能使用索引的话，优化器可能会使用in-memory sort操作。
 详情请参考https://dev.mysql.com/doc/refman/5.7/en/order-by-optimization.html#order-by-filesort-in-memory
 ```
