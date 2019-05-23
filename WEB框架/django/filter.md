@@ -11,9 +11,9 @@ filter = {
 'icontains': 'LIKE %s',  
 'regex': 'REGEXP BINARY %s',  
 'iregex': 'REGEXP %s',  
-'gt': '> %s',  
+'gt': '> %s',   # grant than
 'gte': '>= %s',  
-'lt': '< %s',  
+'lt': '< %s',   # litte than
 'lte': '<= %s',  
 'startswith': 'LIKE BINARY %s',  
 'endswith': 'LIKE BINARY %s',  
