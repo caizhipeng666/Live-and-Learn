@@ -46,7 +46,20 @@ limit 10
   为什么第二条sql要快，因为运气好，刚好时间倒序的前几条就全部满足了。
 ### 解决
 ✓ 组合索引(但是要注意组合索引的顺序, id_time 和 time_id效果是不同的)
-* 可能会出现的问题：排序用到了filesort，也就是说，排序未用到索引
+* 可能会出现的问题：排序用到了filesort，也就是说，排序未用到索引   
+  wher id in (1, 2, 3)
 ```
+本来索引是排好序的，直接左序遍历即可，如 WHERE id = 4 order by time
+但是现在，下索引的排序规则
+id1<id2<id3...  time1<time2<time3....
+查询结果集排序如下：
+id1+time1
+id1+time2
+id1+time3
 
+id2+time1
+id2+time2
+id2+time3
+id是有序的，时间是无序的，因为有多个id，优先按id排序，时间就是乱的了
+∴排序将会用filesort
 ```
