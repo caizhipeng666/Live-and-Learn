@@ -11,6 +11,7 @@
 * [更新](#mysql更新)
 * [替換](#mysql替換)
 * [错误](#mysql错误)
+* [索引](#mysql索引)
 
 错误码|说明
 ---|---
@@ -48,4 +49,16 @@ where ...;
 > 插入数据库错误：1267错误
 ```
 ALTER TABLE xxx表 CONVERT TO CHARACTER SET utf8;
+```
+---
+# mysql索引
+## 强制使用索引
+```
+select *
+from xx表 force index(索引名/主键)
+```
+## 强制不用索引
+```
+select *
+from xx表 ignore index(索引名/主键)
 ```
