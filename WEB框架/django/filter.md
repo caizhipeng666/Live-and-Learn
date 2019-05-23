@@ -1,3 +1,7 @@
+* [filter](#filter)
+* [select](#select)
+
+# filter
 ```python
 filter = {
 'exact': '= %s',  
@@ -15,4 +19,14 @@ filter = {
 'istartswith': 'LIKE %s',  
 'iendswith': 'LIKE %s'
 }
+```
+---
+# select
+> 仅选某字段
+```python
+XX.objects.all().only('name')
+```
+> 去掉某字段
+```python
+XX.objects.all().defer('name')
 ```
