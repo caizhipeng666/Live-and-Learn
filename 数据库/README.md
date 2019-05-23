@@ -8,6 +8,7 @@
 
 # mysql
 * [创建](#mysql创建)
+* [查询](#mysql查询)
 * [更新](#mysql更新)
 * [替換](#mysql替換)
 * [错误](#mysql错误)
@@ -22,6 +23,14 @@
 ```
 default CURRENT_TIMESTAMP
 ```
+
+## mysql查询
+* 不使用cache
+```
+select sql_no_cache *
+...
+```
+
 ## mysql更新
 1. 修改数据库级别
 ```
