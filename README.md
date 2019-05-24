@@ -50,6 +50,9 @@ limit 10
   wher id in (1, 2, 3)
 ```
 本来索引是排好序的，直接左序遍历即可，如 WHERE id = 4 order by time
+4+time1
+4+time2
+4+time3
 但是现在，下索引的排序规则
 id1<id2<id3...  time1<time2<time3....
 查询结果集排序如下：
