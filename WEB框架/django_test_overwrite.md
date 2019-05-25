@@ -1,8 +1,3 @@
-# 高级用法
-* [外部修改配置](#override_settings)
----
-
-
 # override_settings
 > 在settings外修改django配置
 ```python
