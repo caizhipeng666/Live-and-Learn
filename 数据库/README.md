@@ -39,7 +39,7 @@ SET SQL_SAFE_UPDATES=0;
 2. update字段
 ```
 update xxx表
-set 字段=值
+set 字段=值, 字段2=值2 (不是用AND连接!!!)
 where 字段=条件;
 ```
 > 减少一天 set xx_time = DATE_SUB(expired_time,INTERVAL 1 DAY)
