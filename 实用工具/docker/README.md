@@ -289,11 +289,16 @@ container_name: app
       - ./common.env
       - ./apps/web.env
       - /opt/secrets.env
-注意的是这里所说的环境变量是对宿主机的 Compose 而言的，如果在配置文件中有 build 操作，这些变量并不会进入构建过程中，如果要在构建中使用变量还是首选前面刚讲的 arg 标签。
+注意的是这里所说的环境变量是对宿主机的 Compose 而言的，
+如果在配置文件中有 build 操作，这些变量并不会进入构建过程中，
+如果要在构建中使用变量还是首选前面刚讲的 arg 标签。
+
 10. environment
 
-与上面的 env_file 标签完全不同，反而和 arg 有几分类似，这个标签的作用是设置镜像变量，它可以保存变量到镜像里面，也就是说启动的容器也会包含这些变量设置，这是与 arg 最大的不同。
-一般 arg 标签的变量仅用在构建过程中。而 environment 和 Dockerfile 中的 ENV 指令一样会把变量一直保存在镜像、容器中，类似 docker run -e 的效果。
+与上面的 env_file 标签完全不同，反而和 arg 有几分类似，这个标签的作用是设置镜像变量，它可以保存变量到镜像里面，
+也就是说启动的容器也会包含这些变量设置，这是与 arg 最大的不同。
+一般 arg 标签的变量仅用在构建过程中。
+而 environment 和 Dockerfile 中的 ENV 指令一样会把变量一直保存在镜像、容器中，类似 docker run -e 的效果。
     environment:
       RACK_ENV: development
       SHOW: 'true'
@@ -306,14 +311,18 @@ container_name: app
 
 11. expose
 
-这个标签与Dockerfile中的EXPOSE指令一样，用于指定暴露的端口，但是只是作为一种参考，实际上docker-compose.yml的端口映射还得ports这样的标签。
+这个标签与Dockerfile中的EXPOSE指令一样，用于指定暴露的端口，但是只是作为一种参考，
+实际上docker-compose.yml的端口映射还得ports这样的标签。
     expose:
      - "3000"
      - "8000"
 
 12. external_links
 
-在使用Docker过程中，我们会有许多单独使用docker run启动的容器，为了使Compose能够连接这些不在docker-compose.yml中定义的容器，我们需要一个特殊的标签，就是external_links，它可以让Compose项目里面的容器连接到那些项目配置外部的容器（前提是外部容器中必须至少有一个容器是连接到与项目内的服务的同一个网络里面）。
+在使用Docker过程中，我们会有许多单独使用docker run启动的容器，
+为了使Compose能够连接这些不在docker-compose.yml中定义的容器，我们需要一个特殊的标签，就是external_links，
+它可以让Compose项目里面的容器连接到那些项目配置外部的容器
+（前提是外部容器中必须至少有一个容器是连接到与项目内的服务的同一个网络里面）。
 格式如下：
     external_links:
      - redis_1
@@ -345,7 +354,8 @@ container_name: app
 
 15. links
 
-还记得上面的depends_on吧，那个标签解决的是启动顺序问题，这个标签解决的是容器连接问题，与Docker client的--link一样效果，会连接到其它服务中的容器。
+还记得上面的depends_on吧，那个标签解决的是启动顺序问题，这个标签解决的是容器连接问题，
+与Docker client的--link一样效果，会连接到其它服务中的容器。
 格式如下：
     links:
      - db
@@ -366,14 +376,17 @@ container_name: app
       driver: syslog
       options:
         syslog-address: "tcp://192.168.0.42:123"
-默认的driver是json-file。只有json-file和journald可以通过docker-compose logs显示日志，其他方式有其他日志查看方式，但目前Compose不支持。对于可选值可以使用options指定。
+默认的driver是json-file。
+只有json-file和journald可以通过docker-compose logs显示日志，其他方式有其他日志查看方式，但目前Compose不支持。
+对于可选值可以使用options指定。
 有关更多这方面的信息可以阅读官方文档：
 https://docs.docker.com/engine/admin/logging/overview/
 
 17. pid
 
 pid: "host"
-将PID模式设置为主机PID模式，跟主机系统共享进程命名空间。容器使用这个标签将能够访问和操纵其他容器和宿主机的名称空间。
+将PID模式设置为主机PID模式，跟主机系统共享进程命名空间。
+容器使用这个标签将能够访问和操纵其他容器和宿主机的名称空间。
 
 18. ports
 
@@ -384,7 +397,8 @@ pid: "host"
      - "8000:8000"
      - "49100:22"
      - "127.0.0.1:8001:8001"
-    注意：当使用HOST:CONTAINER格式来映射端口时，如果你使用的容器端口小于60你可能会得到错误得结果，因为YAML将会解析xx:yy这种数字格式为60进制。所以建议采用字符串格式。
+    注意：当使用HOST:CONTAINER格式来映射端口时，如果你使用的容器端口小于60你可能会得到错误得结果，
+         因为YAML将会解析xx:yy这种数字格式为60进制。所以建议采用字符串格式。
 
 19. security_opt
 
@@ -400,7 +414,8 @@ stop_signal: SIGUSR1
 
 21. volumes
 
-挂载一个目录或者一个已存在的数据卷容器，可以直接使用 [HOST:CONTAINER] 这样的格式，或者使用 [HOST:CONTAINER:ro] 这样的格式，后者对于容器来说，数据卷是只读的，这样可以有效保护宿主机的文件系统。
+挂载一个目录或者一个已存在的数据卷容器，可以直接使用 [HOST:CONTAINER] 这样的格式，
+或者使用 [HOST:CONTAINER:ro] 这样的格式，后者对于容器来说，数据卷是只读的，这样可以有效保护宿主机的文件系统。
 Compose的数据卷指定路径可以是相对路径，使用 . 或者 .. 来指定相对目录。
 数据卷的格式可以是下面多种形式：
     volumes:
@@ -424,7 +439,9 @@ volume_driver: mydriver
 
 22. volumes_from
 
-从其它容器或者服务挂载数据卷，可选的参数是 :ro或者 :rw，前者表示容器只读，后者表示容器对数据卷是可读可写的。默认情况下是可读可写的。
+从其它容器或者服务挂载数据卷，可选的参数是 
+:ro或者 :rw，前者表示容器只读，后者表示容器对数据卷是可读可写的。
+默认情况下是可读可写的。
     volumes_from:
       - service_name
       - service_name:ro
@@ -454,12 +471,14 @@ cgroup_parent: m-executor-abcd
 
 26. extends
 
-这个标签可以扩展另一个服务，扩展内容可以是来自在当前文件，也可以是来自其他文件，相同服务的情况下，后来者会有选择地覆盖原有配置。
+这个标签可以扩展另一个服务，扩展内容可以是来自在当前文件，也可以是来自其他文件，
+相同服务的情况下，后来者会有选择地覆盖原有配置。
     extends:
       file: common.yml
       service: webapp
 
-用户可以在任何地方使用这个标签，只要标签内容包含file和service两个值就可以了。file的值可以是相对或者绝对路径，如果不指定file的值，那么Compose会读取当前YML文件的信息。
+用户可以在任何地方使用这个标签，只要标签内容包含file和service两个值就可以了。
+file的值可以是相对或者绝对路径，如果不指定file的值，那么Compose会读取当前YML文件的信息。
 更多的操作细节在后面的12.3.4小节有介绍。
 
 27. network_mode
