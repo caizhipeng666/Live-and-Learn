@@ -30,6 +30,10 @@ sudo ln -s /etc/nginx/sites-available/xxx.conf /etc/nginx/sites-enabled/xxx.conf
 3. 测试配置
 ```
 sudo service nginx configtest
+
+或
+
+进入nginx安装目录sbin下，输入命令./nginx -t
 ```
 4. 重启
 ```
