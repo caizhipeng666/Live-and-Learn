@@ -25,6 +25,14 @@ default CURRENT_TIMESTAMP
 ```
 
 ## mysql查询
+* 日期分组(日期排序)
+```
+select DATE(create_time), count(*), lecture_id
+from xxx
+where id > 1 and id < 10 and create_time > '2019-05-27'
+GROUP BY lecture_id
+ORDER BY DATE(create_time)
+```
 * 不使用cache
 ```
 select sql_no_cache *

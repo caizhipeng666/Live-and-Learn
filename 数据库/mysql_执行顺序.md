@@ -1,10 +1,3 @@
-# ✦重要
-
-classify|
----|
-[mysql](#mysql)|
-
----
 # mysql
 * [sql执行顺序](#mysql执行顺序)
 * [sql表连接](#mysql表连接)
