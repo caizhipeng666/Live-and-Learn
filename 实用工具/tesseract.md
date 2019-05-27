@@ -1,5 +1,6 @@
 # Tesseract
-> 开源的OCR识别引擎
+> 开源的OCR识别引擎   
+> https://github.com/sirfz/tesserocr   
 
 1. 安装
 ### Windows
