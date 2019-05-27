@@ -165,9 +165,9 @@ docker pull registry-host:5000/czp/image_name:v1
 
 1. image
 ```
-    services:
-      web:
-        image: hello-world
+services:
+  web:
+    image: hello-world
 在 services 由用户自定义，它就是服务名称
 Ex：
     image: redis
