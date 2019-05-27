@@ -116,7 +116,7 @@ CMD python app.py ${config} --port 8080
 FROM|<image>:<tag>|在某个镜像上构建
 ARG|xxx|指定构建时的变量
 ENV|TZ Asia/Shanghai|设置环境变量($ENV_name就可以检测)
-COPY|hom?.txt /mydir/ # ? 替代一个单字符,如："home.txt" 到 /mydir/ |将本地文件添加到容器中
+COPY|hom?.txt /mydir/    ? 替代一个单字符,如："home.txt" 到 /mydir/ |将本地文件添加到容器中
 RUN|command param1 param2|构建容器时调用
 WORKDIR|/xxx|工作目录
 CMD|bash|构建容器后默认调用(多个CMD指令，也只会运行最后那个)
