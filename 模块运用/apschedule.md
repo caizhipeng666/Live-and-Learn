@@ -84,7 +84,10 @@ job_defaults = {
 }
 ```
 ```python
-scheduler = BackgroundScheduler(jobstores=jobstores, executors=executors, job_defaults=job_defaults, timezone=utc)
+scheduler = BackgroundScheduler(jobstores=jobstores, 
+                                executors=executors, 
+                                job_defaults=job_defaults, 
+                                timezone=utc)
 ```
 > 暂停作业:
 ```python
