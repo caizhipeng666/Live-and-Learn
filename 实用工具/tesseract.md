@@ -52,6 +52,8 @@ print(result)
 ```
 from PIL import Image
 im = Image.open('xxx.jpg')
+# 1，L，P，RGB，RGBA，CMYK，YCbCr，I，F
+# 其中，(灰度图)L = R * 0.299 + G * 0.587+ B * 0.114
 im = im.convert('L')
 im.save("x1.jpg")
 
