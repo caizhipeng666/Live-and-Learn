@@ -207,7 +207,8 @@ Ex：
     args:
       - buildno
       - password
-    ▲注意：YAML 的布尔值（true, false, yes, no, on, off）必须要使用引号引起来（单引号、双引号均可），否则会当成字符串解析。
+    ▲注意：YAML 的布尔值（true, false, yes, no, on, off）
+          必须要使用引号引起来（单引号、双引号均可），否则会当成字符串解析。
 
 3. command
 
