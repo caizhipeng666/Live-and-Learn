@@ -23,16 +23,15 @@ image_to_string|将图像上的Tesseract OCR运行结果返回到字符串
 image_to_boxes|返回包含已识别字符及其框边界的结果
 image_to_data|返回包含框边界，置信度和其他信息的结果(需要Tesseract 3.05+)
 image_to_osd|返回包含有关方向和脚本检测的信息的结果。
-
-* 图片识别params
-图片识别fun|说明
+---
+图片识别params|类型|说明
 ---|---|---
 image|object|图像对象
 lang|String|语言代码字符串
 config|String|任何其他配置为字符串，例如：config='--psm 6'
 nice|Integer|修改Tesseract运行的处理器优先级(Windows不支持)
 output_type|(自定)|类属性，指定输出的类型，默认为string
-
+---
 ```python
 im = Image.open('x.png')
 result = pytesseract.image_to_string(im, lang='chi_sim')
