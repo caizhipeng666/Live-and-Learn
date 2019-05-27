@@ -36,18 +36,19 @@ docker build -t image_name .
 ```
 docker run -d -p 80:80 image_name
 ```
-* 参数
-   * -d: 后台
-   * -p: 端口映射 host端口：docker镜像端口
-   * -i: 交互式
-   * -t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用
-   * --name: 要在run --name 其他参数
-   * -h：让容器有自己的hostname
-   
-   * -m：设置内存限额 -m 200M (--memory-swap 默认为-m两倍)
-   * --vm：分配线程 --vm 1 (--vm-bytes 200M 每个线程内存)
-   * -c：cpu限额 (-cpu-shares权重)
-   * --blkio-weight：优先级
+参数|说明
+---|---
+-d|后台运行
+-p|端口映射 host端口：docker镜像端口
+-i|交互式
+-t|为容器重新分配一个伪输入终端，通常与 -i 同时使用
+--name|要在run --name 其他参数
+-h|让容器有自己的hostname
+-m|设置内存限额 -m 200M (--memory-swap 默认为-m两倍)
+--vm|分配线程 --vm 1 (--vm-bytes 200M 每个线程内存)
+-c|cpu限额 (-cpu-shares权重)
+--blkio-weight|优先级
+
 > 为啥在最后加上/bin/bash：(启动容器后启动bash)   
 >>      docker中必须要保持一个进程的运行，要不然整个容器就会退出
 
@@ -110,18 +111,20 @@ COPY app.py ${target}/app.py
 WORKDIR ${target}
 CMD python app.py ${config} --port 8080
 ```
-* 参数
-   * FROM <image>:<tag> → 在某个镜像上构建
-   * ARG → 指定构建时的变量
-   * ENV → 设置环境变量 ($ENV_name就可以检测)
-   * COPY → 将本地文件添加到容器中
-     > COPY hom?.txt /mydir/      # ? 替代一个单字符,如："home.txt" 到 /mydir/
-   * RUN command param1 param2→ 构建容器时调用
-   * WORKDIR → 工作目录
-   * CMD → 构建容器后默认调用(多个CMD指令，也只会运行最后那个)
-     > ✓当CMD后面有RUN命令的时候，CMD将被忽略
-   * ENTRYPOINT → 容器启动时调用(RUN和CMD的传参会给到它，多个ENTRYPOINT只会运行最后那条)
-> 可以用docker history image_name 查看构建历史
+方法|参数|说明
+---|---|---
+FROM|<image>:<tag>|在某个镜像上构建
+ARG|xxx|指定构建时的变量
+ENV|TZ Asia/Shanghai|设置环境变量($ENV_name就可以检测)
+COPY|hom?.txt /mydir/ # ? 替代一个单字符,如："home.txt" 到 /mydir/ |将本地文件添加到容器中
+RUN|command param1 param2|构建容器时调用
+WORKDIR|/xxx|工作目录
+CMD|bash|构建容器后默认调用(多个CMD指令，也只会运行最后那个)
+ENTRYPOINT|bash|容器启动时调用(RUN和CMD的传参会给到它，多个ENTRYPOINT只会运行最后那条)
+---
+> ✓当CMD后面有RUN命令的时候，CMD将被忽略   
+> RUN和CMD的传参会给到ENTRYPOINT，但多个ENTRYPOINT只会运行最后那条   
+> 可以用docker history image_name 查看构建历史   
 
 # 服务器
 > 默认情况下，只允许本地客户端请求
