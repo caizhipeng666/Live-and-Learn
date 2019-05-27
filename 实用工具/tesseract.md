@@ -15,6 +15,8 @@ https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-setup-3.05.00dev.exe
 * 配置路径
 ```python
 pytesseract.pytesseract.tesseract_cmd = 'C:\\xxx\Tesseract-OCR\\tesseract.exe'
+
+tessdata_dir_config = r'--tessdata-dir "<your_tessdata_dir_path>"'
 ```
 图片识别fun|说明
 ---|---
