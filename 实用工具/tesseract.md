@@ -42,4 +42,27 @@ result = pytesseract.image_to_string(im, lang='chi_sim')
 print(result)
 ```
 
-###
+### 简单图像处理
+操作|解释
+---|---
+[二值化处理](#二值化处理)|转为黑白
+
+##### 二值化处理
+> 将图像上的像素点的灰度值设置为0或255，也就是将整个图像呈现出明显的黑白效果的过程。
+```
+from PIL import Image
+im = Image.open('xxx.jpg')
+im = im.convert('L')
+im.save("x1.jpg")
+
+threshold = 200
+table = []
+for i in range(256):
+    if i < threshold:
+        table.append(0)
+    else:
+        table.append(1)
+xx = im.point(table, '1')
+xx.save("x2.jpg")
+```
+
