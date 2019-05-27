@@ -225,8 +225,7 @@ container_name: app
 
 5.depends_on
 
-在使用 Compose 时，最大的好处就是少打启动命令，但是一般项目容器启动的顺序是有要求的，如果直接从上到下启动容器，必然会因为容器依赖问题而启动失败。
-例如在没启动数据库容器的时候启动了应用容器，这时候应用容器会因为找不到数据库而退出，为了避免这种情况我们需要加入一个标签，就是 depends_on，这个标签解决了容器的依赖、启动先后的问题。
+这个标签解决了容器的依赖、启动先后的问题。
 例如下面容器会先启动 redis 和 db 两个服务，最后才启动 web 服务：
     version: '2'
     services:
@@ -239,7 +238,6 @@ container_name: app
         image: redis
       db:
         image: postgres
-注意的是，默认情况下使用 docker-compose up web 这样的方式启动 web 服务时，也会启动 redis 和 db 两个服务，因为在配置文件中定义了依赖关系
 
 6.dns
 
@@ -279,7 +277,8 @@ container_name: app
 
 9.env_file
 
-还记得前面提到的 .env 文件吧，这个文件可以设置 Compose 的变量。而在 docker-compose.yml 中可以定义一个专门存放变量的文件。
+还记得前面提到的 .env 文件吧，这个文件可以设置 Compose 的变量。
+而在 docker-compose.yml 中可以定义一个专门存放变量的文件。
 如果通过 docker-compose -f FILE 指定了配置文件，则 env_file 中路径会使用配置文件路径。
 
 如果有变量名称与 environment 指令冲突，则以后者为准。格式如下：
@@ -295,10 +294,12 @@ container_name: app
 
 10. environment
 
-与上面的 env_file 标签完全不同，反而和 arg 有几分类似，这个标签的作用是设置镜像变量，它可以保存变量到镜像里面，
-也就是说启动的容器也会包含这些变量设置，这是与 arg 最大的不同。
-一般 arg 标签的变量仅用在构建过程中。
-而 environment 和 Dockerfile 中的 ENV 指令一样会把变量一直保存在镜像、容器中，类似 docker run -e 的效果。
+与上面的 env_file 标签完全不同，反而和 arg 有几分类似，
+这个标签的作用是设置镜像变量，它可以保存变量到镜像里面，
+也就是说启动的容器也会包含这些变量设置，这是与 arg 最大的不同。一般 arg 标签的变量仅用在构建过程中。
+而 environment 和 Dockerfile 中的 ENV 指令一样会把变量一直保存在镜像、容器中，
+类似 docker run -e 的效果。
+
     environment:
       RACK_ENV: development
       SHOW: 'true'
