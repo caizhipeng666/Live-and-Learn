@@ -24,7 +24,7 @@
 
 ### Each record consists of a key, a value, and a timestamp
 ---
-![](API.jpg "")
+![](./images/API.jpg "")
 (发布、订阅、转换处理、从第三方采集数据)
 ---
 # 使用
