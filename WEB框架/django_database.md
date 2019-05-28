@@ -119,10 +119,12 @@ queryset.objects.select_for_update()
 ```
 
 # 数据库连接数处理
+1. 解决
 ```python
 from django.db import close_old_connections
 django.db.close_old_connections()
 ```
+2. 源码
 ```python
 # django ORM中用到的数据库连接来源
 connections = ConnectionHandler()
@@ -138,4 +140,5 @@ def close_old_connections(**kwargs):
     for conn in connections.all():
         conn.close_if_unusable_or_obsolete()
 signals.request_started.connect(close_old_connections)
+signals.request_finished.connect(close_old_connections)
 ```
