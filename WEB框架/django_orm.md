@@ -1,7 +1,7 @@
 * [filter](#filter)
 * [update](#update)
 * [select](#select)
-* [others](#others)
+* [atomic](#atomic)
 
 # filter
 ```python
@@ -60,12 +60,13 @@ XX.objects.all().only('name')
 XX.objects.all().defer('name')
 ```
 ---
-# others
-* 字段值为'\u...'
+# atomic
+1. context_manager
 ```python
-# Ex：["\u4e60 \u54d2 \u54d2"]
-# 使用print(["\u4e60 \u54d2 \u54d2"])可以直接看到结果
-通过django, xxx.objects.filter(...).xx字段获取时:
-      '["\\u4e60 \\u54d2 \\u54d2"]'
-    通过json.loads()处理一下就OK
+with transaction.atomic():
+    qs = XX.objects.select_for_update().filter(...)
+```
+2. decorate
+```
+@transaction.atomic
 ```
