@@ -51,6 +51,10 @@ for q in qs:
 ```
 ---
 # select
+> 只要某字段
+```python
+XX.objects.all().only('name')
+```
 > 去掉某字段
 ```python
 XX.objects.all().defer('name')
