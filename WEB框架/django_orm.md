@@ -1,4 +1,5 @@
 * [filter](#filter)
+* [update](#update)
 * [select](#select)
 * [others](#others)
 
@@ -22,11 +23,34 @@ filter = {
 }
 ```
 ---
-# select
-> 仅选某字段
+# update
+1. 直接filer后update
 ```python
-XX.objects.all().only('name')
+XX.ojects.filter(...).update()
 ```
+2. 对queryset进行updae
+```python
+qs = XX.objects.filter(...)
+qs = qs.exclude(...)[:3]
+qs.update()
+```
+3. ✘对单个记录进行update(行不通的)
+```python
+qs = XX.objects.filter(...)
+for q in qs:
+    q.update(...) 报错：XX has no attribute 'update'
+```
+4. 使用save进行update
+```python
+qs = XX.objects.filter(...)
+for q in qs:
+    q.id = XX
+    q.name = czp
+    # q.save()可以使用update_fields提速
+    q.save(update_fields=['id', 'name'])
+```
+---
+# select
 > 去掉某字段
 ```python
 XX.objects.all().defer('name')
