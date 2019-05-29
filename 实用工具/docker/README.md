@@ -89,7 +89,7 @@ docker stop/start/restart/pause/unpause ps_id
    * --restart=always   任何原因退出都立即重启
    * --restart=on-failure:3   退出代码非0时，最多重启3次 
    
-7. 删除容器
+8. 删除容器
 ```
 docker rm ps_id
 ```
@@ -228,14 +228,14 @@ command:
     ...
     python3 manage.py runserver 0.0.0.0:8080
 ```
-4.container_name
+4. container_name
 ```
 前面说过 Compose 的容器名称格式是：<项目名称><服务名称><序号>
 虽然可以自定义项目名称、服务名称，但是如果你想完全控制容器的命名，可以使用这个标签指定：
 container_name: app
 这样容器的名字就指定为 app 了。
 ```
-5.depends_on
+5. depends_on
 ```
 这个标签解决了容器的依赖、启动先后的问题。
 例如下面容器会先启动 redis 和 db 两个服务，最后才启动 web 服务：
@@ -251,7 +251,7 @@ container_name: app
       db:
         image: postgres
 ```
-6.dns
+6. dns
 ```
 和 --dns 参数一样用途，格式如下：
     dns: 8.8.8.8
@@ -287,7 +287,7 @@ container_name: app
         - memory_limit=-1
         - vendor/bin/phpunit
 ```
-9.env_file
+9. env_file
 ```
 还记得前面提到的 .env 文件吧，这个文件可以设置 Compose 的变量。
 而在 docker-compose.yml 中可以定义一个专门存放变量的文件。
