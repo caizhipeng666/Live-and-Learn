@@ -3,7 +3,7 @@
 ---
 # By czp
 * 2019-05-20 Mysql where order by limit
-1. xx表中，time有索引
+### xx表中，time有索引
 ```
 select *
 from xx
@@ -81,3 +81,44 @@ For details, see The In-Memory filesort Algorithm.
 因为先读索引,再读数据,然后抛弃无需的行,
 而优化后的子查询,只读索引(Cover index)就可以了
 ```
+* 2019-05-20 Docker-Compose build image
+### DokcerFile
+```
+FROM python:3.6.6
+ENV TZ Asia/Shanghai
+ENV TARGET /risk_dev
+COPY requirements.txt ./tmp/
+
+RUN pip install -r /tmp/requirements.txt && \
+    rm /tmp/requirements.txt
+WORKDIR ${TARGET}
+CMD bash
+```
+### docker-compose.yml
+```
+version: "3.7"
+
+services:
+  czp:
+    build:
+      context: .
+      dockerfile: DockerFile
+    image: czp:dev
+    configs:
+      - TARGET
+    command: python manage.py runserver 0:8181
+
+    environment:
+      - DJANGO_SETTINGS_MODULE=czp.dev
+    working_dir: /tmp/
+    volumes:
+      - ..:/tmp
+    ports:
+      - 8181:12300
+```
+### 错误
+> 1. build DockerFile的COPY，找不到requirements.txt
+> 2. 改为requirements.txt后，提示不能到context的上级目录
+
+### 解决
+> 先build镜像
