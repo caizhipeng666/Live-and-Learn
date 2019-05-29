@@ -173,7 +173,6 @@ services:
     image: hello-world
 在 services 由用户自定义，它就是服务名称
 Ex：
-    image: redis
     image: ubuntu:14.04
     image: tutum/influxdb
     image: example-registry.com:4000/postgresql
@@ -182,15 +181,13 @@ Ex：
 
 2. build
 ```
-服务除了可以基于指定的镜像，还可以基于一份 Dockerfile，
-在使用 up 启动之时执行构建任务，这个构建标签就是 build，它可以指定 Dockerfile 所在文件夹的路径
+基于Dockerfile构建镜像
     build: /path/to/build/dir
-也可以是相对路径，只要上下文确定就可以读取到 Dockerfile
     build: ./dir
 设定上下文根目录，然后以该目录为准指定 Dockerfile
     build:
       context: ../
-      dockerfile: path/of/Dockerfile  # 指定 Dockerfile 文件
+      dockerfile: path/of/Dockerfile
 ✓同时指定了 image 和 build 两个标签，
  那么 Compose 会构建镜像并且把镜像命名为 image 后面的那个名字
     build: ./dir
@@ -220,6 +217,16 @@ Ex：
 command: bundle exec thin -p 3000
 也可以写成类似 Dockerfile 中的格式：
 command: [bundle, exec, thin, -p, 3000]
+```
+多条命令
+```
+command:
+  - /bin/sh
+  - -c
+  - |
+    python3 manage.py migrate
+    ...
+    python3 manage.py runserver 0.0.0.0:8080
 ```
 4.container_name
 ```
