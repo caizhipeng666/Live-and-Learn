@@ -5,7 +5,7 @@
 Time|story
 ---|---
 2019-05-20|[Mysql索引](#Mysql索引)
-2019-05-20|[Docker-Compose构建](#Docker-Compose构建)
+2019-05-29|[Docker-Compose构建](#Docker-Compose构建)
 
 ---
 ## Mysql索引
@@ -90,7 +90,7 @@ For details, see The In-Memory filesort Algorithm.
 ```
 ---
 ## Docker-Compose构建
-* 2019-05-20 Docker-Compose build image
+* 2019-05-29 Docker-Compose build image
 ### DokcerFile
 ```
 FROM python:3.6.6
