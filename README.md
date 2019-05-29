@@ -4,11 +4,11 @@
 # By czp
 Time|story
 ---|---
-2019-05-20|[Mysql索引](#Mysql where order by limit)
-2019-05-20|[Docker-Compose构建](#Docker-Compose build image)
+2019-05-20|[Mysql索引](#Mysql索引)
+2019-05-20|[Docker-Compose构建](#Docker-Compose构建)
 
 ---
-## Mysql where order by limit
+## Mysql索引
 * 2019-05-20 Mysql where order by limit
 ### xx表中，time有索引
 ```
@@ -89,7 +89,7 @@ For details, see The In-Memory filesort Algorithm.
 而优化后的子查询,只读索引(Cover index)就可以了
 ```
 ---
-## Docker-Compose build image
+## Docker-Compose构建
 * 2019-05-20 Docker-Compose build image
 ### DokcerFile
 ```
