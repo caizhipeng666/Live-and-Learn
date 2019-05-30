@@ -4,7 +4,7 @@
 ---|---
 [mkdir](#mkdir)|创建文件夹
 [curl](#curl)|Ping URL
-[wget](#wget)|Get URL
+[wget](#wget)|Download URL
 [> xxx.txt](#输出文件)|输出文件
 [ps](#ps)|进程信息
 [grep](#grep)|查找信息
@@ -14,8 +14,17 @@
 * -p:当上级目论不存在时，创建上级目录
 ---
 # curl
+* curl [option] [url]
+参数|作用
+---|---
+-x|使用代理，Ex:curl -x xxx.ip:80 http:xx.com
+-A|模拟浏览器，EX:curl -A "Mozilla/4.0..." http:xx.com
+-e|伪造refer
+
 ---
 # wget
+> 下载文件的工具
+
 ---
 # 输出文件
 > 将控制台输出，添加到文件中
