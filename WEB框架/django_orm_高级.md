@@ -1,7 +1,15 @@
 # 高级ORM用法
+* [Annotate](#Annotate)
 * [Case](#Case)
 * [When](#When)
 ---
+
+# Annotate
+> Group By
+```python
+# 通过group_by "x1_id", "x2_id"进行数据库去重
+reviewer = queryset.values('x1_id', 'x2_id').annotate(Count('x2_id'))
+```
 
 
 # 数据模型
