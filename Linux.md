@@ -5,7 +5,7 @@
 [mkdir](#mkdir)|创建文件夹
 [curl](#curl)|Ping URL
 [wget](#wget)|Get URL
-[> xxx.txt](#>txt)|输出文件
+[> xxx.txt](#输出文件)|输出文件
 [ps](#ps)|进程信息
 [grep](#grep)|查找信息
 
@@ -17,7 +17,7 @@
 ---
 # wget
 ---
-# >txt
+# 输出文件
 > 将控制台输出，添加到文件中
 ```
 python xxx.py > ~/xxx/xx.txt
