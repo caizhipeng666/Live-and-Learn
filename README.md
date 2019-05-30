@@ -126,8 +126,9 @@ services:
       - 8181:12300
 ```
 ### 错误
-> 1. build DockerFile的COPY，找不到requirements.txt
-> 2. 改为requirements.txt后，提示不能到context的上级目录
+> 1. build DockerFile的COPY，找不到requirements.txt   
+> 2. 改为requirements.txt后，提示不能到context的上级目录   
 
 ### 解决
-> 先build镜像
+> 方案1. 先build镜像   
+> 方案2. 将requirements.txt移至dockerfile目录下 
