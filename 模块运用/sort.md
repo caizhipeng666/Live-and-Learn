@@ -40,3 +40,15 @@ max(users, key=attrgetter('user_id')
 s = [{'x': x, 'xxx':xxx}, {'x': xx, 'xxx':xxxx}]
 s = sorted(s, key=lambda x: x['xxx'])
 ```
+
+5. 对字典排序
+* 对Key
+```python
+d = {...}
+res = sorted(d.items())
+```
+* 对Value
+```python
+d = {...}
+res = sorted(d.items(), key=lambda d: d[1])
+```
