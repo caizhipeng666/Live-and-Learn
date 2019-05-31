@@ -10,7 +10,19 @@
 # 通过group_by "x1_id", "x2_id"进行数据库去重
 reviewer = queryset.values('x1_id', 'x2_id').annotate(Count('x2_id'))
 ```
+### Annotate高级使用
+> 将DateTimeField的日期，进行每一天的Group_by
+```python
+from django.db.models.functions import TruncDay
 
+tasks_annotate = queryset.annotate(
+        day=TruncDay('start_time')
+    ).values('day').annotate(
+        tasks_count=Count('id')
+    ).values('day', 'tasks_count').order_by('day')
+# 第一个annotate:聚合成每一天
+# 第二个annotate:根据每一天进行Group By
+```
 
 # 数据模型
 ```python
