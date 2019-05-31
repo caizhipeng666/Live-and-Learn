@@ -52,3 +52,8 @@ res = sorted(d.items())
 d = {...}
 res = sorted(d.items(), key=lambda d: d[1])
 ```
+> 建议使用OrderDict
+```python
+import collections
+dic = collections.OrderedDict()
+```
