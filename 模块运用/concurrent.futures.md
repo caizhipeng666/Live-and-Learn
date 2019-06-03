@@ -25,7 +25,7 @@ with ProcessPoolExecutor(max_workers=2) as executor:
 
 ```
 objects|description|return
----|---
+---|---|---
 Future.cancel()|终止某个线程和进程的任务|Boolean
 Future.cancelled()|判断是否结束了任务|Boolean
 Future.running()|判断是否还在运行|Boolean
