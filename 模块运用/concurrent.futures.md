@@ -70,12 +70,15 @@ def xxfunc(l: list):
 with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
     xx = {executor.submit(xxfunc, l): l for l in lists}
     # xx2 = dict((executor.submit(xxfunc, l), l) for l in lists)
+
+    # 如果需要func的返回结果
     for future in concurrent.futures.as_completed(xx):
         xxx = xx[future]
         try:
+            # func中的return
             data = future.result()
         except Exception as exc:
-            print('%r generated an exception: %s' % (xxx, exc))
+            print('exc', exc)
         else:
-            print('%r page is %d bytes' % (xxx, len(data)))
+            pass
 ```
