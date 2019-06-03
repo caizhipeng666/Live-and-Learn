@@ -13,6 +13,7 @@
 * [替換](#mysql替換)
 * [错误](#mysql错误)
 * [索引](#mysql索引)
+* [结构](#mysql结构)
 
 错误码|说明
 ---|---
@@ -78,4 +79,14 @@ from xx表 force index(索引名/主键)
 ```
 select *
 from xx表 ignore index(索引名/主键)
+```
+---
+# mysql结构
+## 查看表
+```
+show tables from xxx_database;
+```
+## 查看列
+```
+show columns from xxx_table;
 ```
