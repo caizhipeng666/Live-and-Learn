@@ -18,6 +18,7 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
 ```python
 executor = ThreadPoolExecutor(max_workers=1)
 executor.submit(xxxfunc, param1, ...)
+executor.shutdown()
 ```
 ### ProcessPoolExecutor
 ```python
@@ -81,4 +82,11 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
             print('exc', exc)
         else:
             pass
+```
+---
+```python
+with concurrent.futures.ThreadPoolExecutor(max_workers=1) as e:
+    # map的parma2必须是个可迭代对象
+    p = e.map(czp_test, range(5))
+    print(list(p))
 ```
