@@ -60,4 +60,5 @@
 7. 缓冲池是通过LRU进行管理的
    > 当不能存放新读取到的页时,将先释放LRU表尾的页
 8. 当Update或Delete改变表中记录时,页是脏的,数据库需要将新版本的页从缓冲池刷新到磁盘
-9. 
+9. 两种Checkpoint分为: Sharp Checkpoint 和 Fuzzy Checkpoint
+10. 
