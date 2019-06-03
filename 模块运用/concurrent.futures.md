@@ -79,8 +79,10 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
     # xx2 = dict((executor.submit(xxfunc, l), l) for l in lists)
 
     # 如果需要func的返回结果
+    # as_completed 接收一个future列表，返回值是一个迭代器
     for future in concurrent.futures.as_completed(xx):
-        # as_completed 接收一个future列表，返回值是一个迭代器
+        # futures.as_completed 函数特别有用的惯用法：
+        构建一个字典，把各个future映射到其他数据
         xxx = xx[future]
         try:
             # func中的return
