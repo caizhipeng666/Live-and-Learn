@@ -63,7 +63,7 @@ function|description
 ---|---
 ALL_COMPLETED|The function will return when all futures finish or are cancelled
 FIRST_COMPLETED|The function will return when any future finishes or is cancelled.
-FIRST_EXCEPTION|The function will return when any future finishes by raising an exception.  If no future raises an exception then it is equivalent to ALL_COMPLETED.
+FIRST_EXCEPTION|The function will return when any future finishes by raising an exception.If no future raises an exception then it is equivalent to ALL_COMPLETED.
 
 # Example
 ```python
