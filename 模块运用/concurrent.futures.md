@@ -6,6 +6,7 @@ classicfy|description
 [Future](#Future)|有Executor.submit产生多任务
 
 # Executor
+1. 选择池
 ### THreadPoolExecutor
 ```python
 with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
@@ -19,6 +20,17 @@ with ProcessPoolExecutor(max_workers=2) as executor:
                                 zip(nums,
                                     executor.map(factorize_naive, nums))}
 ```
+2. 安排计划
+### sumbit(fn, *args, **kwargs)
+> Schedules the callable, fn, to be executed as fn(*args **kwargs)   
+> returns a Future object representing the execution of the callable   
+```
+with ThreadPoolExecutor(max_workers=1) as executor:
+    future = executor.submit(pow, 323, 1235)
+    print(future.result())
+```
+### map(func, *iterables, timeout=None, chunksize=1)
+### shutdown(wait=True)
 
 # Future
 ```python
