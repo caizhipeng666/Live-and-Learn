@@ -38,15 +38,14 @@ with ThreadPoolExecutor(max_workers=1) as executor:
     future = executor.submit(pow, 323, 1235)
     print(future.result())
 ```
+> 如果不是获取到所有结果再处理，通常会使用 Executor.submit + Executor.as_completed
 ### map(func, *iterables, timeout=None, chunksize=1)
-
+> 这个函数返回结果的顺序于调用开始的顺序是一致的
+> submit方法能处理不同的可调用对象和参数，而map只能处理参数不同的同一个可调用对象
 ### shutdown(wait=True)
 > if you use the with statement, which will shutdown the Executor
 ---
 # Future
-```python
-
-```
 objects|description|return
 ---|---|---
 Future.cancel()|终止某个线程和进程的任务|Boolean
@@ -54,6 +53,7 @@ Future.cancelled()|判断是否结束了任务|Boolean
 Future.running()|判断是否还在运行|Boolean
 Future.done()|判断是正常执行完毕|Boolean
 Future.result(timeout=None)|针对result结果做超时的控制|
+Future.add_done_callback(callable)|Future运行结束后会回调这个对象|
 
 ---
 > ✘不要在已经被submit的函数里面在调用submit
@@ -80,6 +80,7 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
 
     # 如果需要func的返回结果
     for future in concurrent.futures.as_completed(xx):
+        # as_completed 接收一个future列表，返回值是一个迭代器
         xxx = xx[future]
         try:
             # func中的return
