@@ -6,11 +6,16 @@ classicfy|description
 [Future](#Future)|有Executor.submit产生多任务
 
 # Executor
+>  提供了执行异步调用，但不能直接使用
 1. 选择池
 ### THreadPoolExecutor
 ```python
 with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
     print(list(executor.map(sleeper, x)))
+```
+```python
+executor = ThreadPoolExecutor(max_workers=1)
+executor.submit(xxxfunc, param1, ...)
 ```
 ### ProcessPoolExecutor
 ```python
@@ -30,7 +35,10 @@ with ThreadPoolExecutor(max_workers=1) as executor:
     print(future.result())
 ```
 ### map(func, *iterables, timeout=None, chunksize=1)
+
 ### shutdown(wait=True)
+> if you use the with statement, which will shutdown the Executor
+
 
 # Future
 ```python
