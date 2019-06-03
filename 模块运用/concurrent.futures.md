@@ -68,7 +68,8 @@ def xxfunc(l: list):
     return
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-    xx = {executor.submit(xxfun, l): l for l in lists}
+    xx = {executor.submit(xxfunc, l): l for l in lists}
+    # xx2 = dict((executor.submit(xxfunc, l), l) for l in lists)
     for future in concurrent.futures.as_completed(xx):
         xxx = xx[future]
         try:
