@@ -3,7 +3,8 @@
 classicfy|description
 ---|---
 [Executor](#Executor)|ThreadPoolExecutor/ProcessPoolExecutor
-[Future](#Future)|有Executor.submit产生多任务
+[Future](#Future)|用Executor.submit/map产生多任务
+[Module](#Module)|模块方法
 [Example](#Example)|demo
 
 # Executor
@@ -41,8 +42,7 @@ with ThreadPoolExecutor(max_workers=1) as executor:
 
 ### shutdown(wait=True)
 > if you use the with statement, which will shutdown the Executor
-
-
+---
 # Future
 ```python
 
@@ -57,7 +57,13 @@ Future.result(timeout=None)|针对result结果做超时的控制|
 
 ---
 > ✘不要在已经被submit的函数里面在调用submit
-> 
+---
+# Module
+function|description
+---|---
+ALL_COMPLETED|The function will return when all futures finish or are cancelled
+FIRST_COMPLETED|The function will return when any future finishes or is cancelled.
+FIRST_EXCEPTION|The function will return when any future finishes by raising an exception.  If no future raises an exception then it is equivalent to ALL_COMPLETED.
 
 # Example
 ```python
