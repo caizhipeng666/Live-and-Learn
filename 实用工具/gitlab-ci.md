@@ -7,9 +7,7 @@ pass
 2. 配置
 > https://docs.gitlab.com/runner/register/index.html
 ### sudo gitlab-runner register
-```
-
-```
+![](./images/gitlab_ci.jpg "")
 3. .gitlab-ci.yml
 ```
 stages:
