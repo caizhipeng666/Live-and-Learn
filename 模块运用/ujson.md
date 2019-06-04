@@ -1,5 +1,5 @@
 # Ujson
-> 速度比json快一倍
+> 速度比json快一倍,但是安装很麻烦！
 
 1. dumps
 ```python
