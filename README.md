@@ -6,6 +6,7 @@ Time|story
 ---|---
 2019-05-20|[Mysql索引](#Mysql索引)
 2019-05-29|[Docker-Compose构建](#Docker-Compose构建)
+2019-06-04|[Docker-Mysql连接](#Docker-Mysql连接)
 
 ---
 ## Mysql索引
@@ -132,3 +133,33 @@ services:
 ### 解决
 > 方案1. 先build镜像   
 > 方案2. 将requirements.txt移至dockerfile目录下 
+---
+## Docker-Mysql连接
+* 2019-06-04 Docker-Compose build image
+### 错误：一直无法连接127.0.0.1
+### docker-compose.yml
+```
+risk_mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=czp_test
+      - TZ=Asia/Shanghai
+```
+### Django settings
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': '127.0.0.1',
+        'PORT': 3306,
+        'NAME': 'czp_test',
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'OPTIONS': {
+            'charset': 'utf8mb4'
+        }
+    }
+}
+```
+### 解决：将HOST换为docker-compose中的mysql services name即可
