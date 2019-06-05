@@ -42,6 +42,7 @@ commands = {posargs:py.test}
 ```
 ---
 > https://tox.readthedocs.io/en/latest/config.html
+
 key|description
 ---|---
 envlist|在哪些环境下进行发布、安装、测试相关
