@@ -50,5 +50,5 @@ skipsdis|=True时tox默认会使用sdist构建包，(没有必要)，而且构�
 toxworkdir|创建virtual虚拟环境的路径
 changedir|执行命令时更改，以该目录当前目录
 deps|包测试依赖
-setenv|导入变量，跟exprot一样
+setenv|导入变量，跟export一样
 commands|测试命令
