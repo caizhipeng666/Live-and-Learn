@@ -3,17 +3,23 @@
 ---
 classify|
 ---|
+[git](#git)|
 [去除转义](#去除转义)|
 [类型检查](#类型检查)|
 [日期处理](#日期)|
 [字典处理](#字典)|
 [集合操作](#集合)|
-# 去除转义
+# git
 ```
+git branch | grep -v "master" | xargs git branch -D
+git stash && git checkout master && git branch | grep -v "master" | xargs git branch -D
+```
+# 去除转义
+```python
 string = r'xxxx\t\n'
 ```
 # 类型检查
-```
+```python
 def xx(xxx: int):
 ```
 # 日期
@@ -45,7 +51,7 @@ print(new_dict)
 ```
 
 # 集合
-```
+```python
 a = ['a', 'b', 'c', 1, 2]
 b = ['b', 2]
 c = ['c', 2]
