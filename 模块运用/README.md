@@ -7,6 +7,7 @@ classify|
 [类型检查](#类型检查)|
 [日期处理](#日期)|
 [字典处理](#字典)|
+[集合操作](#集合)|
 # 去除转义
 ```
 string = r'xxxx\t\n'
@@ -42,3 +43,19 @@ for k, v in some_dict.items():
 
 print(new_dict)
 ```
+
+# 集合
+```
+a = ['a', 'b', 'c', 1, 2]
+b = ['b', 2]
+c = ['c', 2]
+d = set(filter(lambda x: x in a, b))  # d → {'b', 2}
+e = set(filter(lambda x: x in a, c))  # e → {'c', 2}
+```
+action|description
+---|---
+&|交
+||并
+^|异或
+-|差
++|和
