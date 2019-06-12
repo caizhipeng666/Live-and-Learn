@@ -19,3 +19,4 @@ res = requests.get(url=api_url, headers=headers, params=params)
 if request.META.get('HTTP_XXX_TOKEN') != settings.RISK_TOKEN:
     return HttpResponse('INVALID TOKEN !', status=401)
 ```
+![](./image/Django_META.png)
