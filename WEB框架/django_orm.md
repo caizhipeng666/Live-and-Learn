@@ -1,7 +1,10 @@
-* [filter](#filter)
-* [update](#update)
-* [select](#select)
-* [atomic](#atomic)
+action|
+---|
+[filter](#filter)|
+[update](#update)|
+[select](#select)|
+[atomic](#atomic)|
+[create](#create)|
 
 # filter
 ```python
@@ -69,4 +72,10 @@ with transaction.atomic():
 2. decorate
 ```
 @transaction.atomic
+```
+---
+# create
+> 索引字段
+```python
+name = CharField(max_length=255, db_index=True)
 ```
