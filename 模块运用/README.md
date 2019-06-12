@@ -55,7 +55,7 @@ e = set(filter(lambda x: x in a, c))  # e → {'c', 2}
 action|description
 ---|---
 &|交
-||并
+\||并
 ^|异或
 -|差
 +|和
