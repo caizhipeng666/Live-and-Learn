@@ -29,5 +29,5 @@ InnoDB体系结构|description
 6|show engine innodb status查看INNODB状态
 7|缓冲池是通过LRU进行管理的<br>当不能存放新读取到的页时,将先释放LRU表尾的页
 8|当Update或Delete改变表中记录时,页是脏的<br>数据库需要将新版本的页从缓冲池刷新到磁盘
-9|两种Checkpoint分为: Sharp Checkpoint 和 Fuzzy Checkpoint<br>sharp checkpoint：在关闭数据库的时候，将buffer pool中的脏页全部刷新到磁盘中<br>fuzzy checkpoint：数据库正常运行时，在不同的时机将部分脏页写入磁盘，进刷新部分脏页到磁盘<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是为了避免一次刷新全部的脏页造成的性能问题。
+9|两种Checkpoint分为: Sharp Checkpoint 和 Fuzzy Checkpoint<br>sharp checkpoint：在关闭数据库的时候，将buffer pool中的脏页全部刷新到磁盘中<br>fuzzy checkpoint：数据库运行时，在不同的时机将部分脏页写入磁盘（刷新部分脏页到磁盘）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是为了避免一次刷新全部的脏页造成的性能问题。
 10. 
