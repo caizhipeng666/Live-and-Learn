@@ -13,3 +13,7 @@ InnoDB|√|√|
 [页锁](#页锁)|开销中|中|死锁|粒度中|并发度一般
 
 # 表锁
+* 表共享读锁（Table Read Lock）
+* 表独占写锁（Table Write Lock）
+
+# 行锁
