@@ -12,7 +12,7 @@
 ### MySQL四种隔离级别
 级别|name|description
 ---|---|---
-读未提交|Read Uncommitted)|一个事务还没有提交时，它所做的变更能够被其他事务看到
+读未提交|Read Uncommitted|一个事务还没有提交时，它所做的变更能够被其他事务看到
 读已提交|Read Committed|一个事务只有在提交之后，它所做的变更才能被其他事务看到
 可重复读|Repeated Read|**InnoDB默认级别**<br>一个事务中看到的数据始终是一致的
 串行读|Serializable|为记录加锁，出现锁冲突时，后边的事务必须等待前边的事务执行完成才能继续
