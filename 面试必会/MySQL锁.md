@@ -44,4 +44,5 @@ InnoDB|√|√|
 Select * from xxx where id > 100 for update;
 是一个范围条件的检索，InnoDB不仅会对符合条件的id值为101的记录加锁，也会对id大于101（这些记录并不存在）的“间隙”加锁
 ```
-
+---
+> 一篇好文:https://www.cnblogs.com/jpfss/p/8890250.html
