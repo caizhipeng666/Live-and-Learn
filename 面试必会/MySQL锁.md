@@ -38,6 +38,7 @@ InnoDB|√|√|
 ##### InnoDB这种行锁实现特点意味着：只有通过索引条件检索数据，InnoDB才使用行级锁，否则，InnoDB将使用表锁！
 ---
 # 乐观锁
+> update table set x=x+1, version=version+1 where id=#{id} and version=#{version}; 
 ```
 总是假设最好的情况，每次去拿数据的时候都认为别人不会修改，所以不会上锁，
 但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号机制和CAS算法实现
