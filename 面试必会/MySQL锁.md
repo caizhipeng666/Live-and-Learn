@@ -27,11 +27,11 @@ InnoDB|√|√|
 共享锁(S)：SELECT * 
           FROM table_name 
           WHERE ... 
-          LOCK IN SHARE MODE。
+          LOCK IN SHARE MODE
 排他锁(X)：SELECT * 
           FROM table_name 
           WHERE ... 
-          FOR UPDATE。
+          FOR UPDATE
 ```
 #### **✧InnoDB行锁是通过给索引上的索引项加锁来实现的**
 ##### 这一点MySQL与Oracle不同，后者是通过在数据块中对相应数据行加锁来实现的。
