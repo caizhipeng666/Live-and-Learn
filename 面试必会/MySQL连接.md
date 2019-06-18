@@ -1,7 +1,16 @@
 # MySQL连接
 #### 数据库连接是一种关键的、有限的、昂贵的资源，这一点在多用户的网页应用程序中体现得尤为突出
 #### 对数据库连接的管理能显著影响到整个应用程序的伸缩性和健壮性，影响到程序的性能指标
-# 原理
+连接类型|description|方式
+---|---|---
+短链接|程序和数据库通信时需要建立连接，执行操作后，连接关闭|连接→数据传输→关闭连接
+长连接|程序之间的连接在建立之后，就一直打开|被后续程序重用
+> ✦维持连接也是需要内存
+
+##### 如果客户端和MySQL数据库之间有连接池或Proxy代理，一般在客户端推荐使用短连接
+> 如果没有每秒几百、上千的新连接请求，就不一定需要长连接，也无法从长连接中得到太多好处
+
+# 连接池原理
 ```
 在系统初始化的时候，将数据库连接作为对象存储在内存中，
 当用户需要访问数据库时，并非建立一个新的连接，而是从连接池中取出一个已建立的空闲连接对象。
@@ -12,13 +21,53 @@
 ```
 ### 注意事项
 > 最小连接数与最大连接数相差太大，那么最先的连接请求将会获利，之后超过最小连接数量的连接请求等价于建立一个新的数据库连接。   
-> 不过， 这些新建的连接在使用完不会马上被释放，它将被放到连接池中等待重复使用或是空闲超时后被释放。   
+> 不过，这些新建的连接在使用完不会马上被释放，它将被放到连接池中等待重复使用或是空闲超时后被释放。   
 
-连接类型|description|方式
----|---
-短链接|程序和数据库通信时需要建立连接，执行操作后，连接关闭|连接→数据传输→关闭连接
-长连接|程序之间的连接在建立之后，就一直打开|被后续程序重用
-> ✦维持连接也是需要内存
+### Django中的数据库连接
+> ✈2006，MySQL server has gone away
 
-##### 如果客户端和MySQL数据库之间有连接池或Proxy代理，一般在客户端推荐使用短连接。对于长连接的使用一定要慎重，不可滥用
-> 如果没有每秒几百、上千的新连接请求，就不一定需要长连接，也无法从长连接中得到太多好处
+#### 在异步脚本中 因为处理的都是websocket，不经过wsgihandler；
+#### 因此数据库中超时的连接不会被及时的清理，因此导致了异步脚本中的数据库访问获取的连接可能已经超时
+##### Django源码：
+```
+class WSGIHandler(base.BaseHandler):
+    initLock = Lock()
+    request_class = WSGIRequest
+
+    def __call__(self, environ, start_response):
+        # Set up middleware if needed. We couldn't do this earlier, because
+        # settings weren't available.
+        if self._request_middleware is None:
+            with self.initLock:
+                try:
+                    # Check that middleware is still uninitialised.
+                    if self._request_middleware is None:
+                        self.load_middleware()
+                except:
+                    # Unload whatever middleware we got
+                    self._request_middleware = None
+                    raise
+
+        set_script_prefix(base.get_script_name(environ))
+        signals.request_started.send(sender=self.__class__)
+        try:
+            request = self.request_class(environ)
+        except UnicodeDecodeError:
+            logger.warning('Bad Request (UnicodeDecodeError)',
+                exc_info=sys.exc_info(),
+                extra={
+                    'status_code': 400,
+                }
+            )
+            response = http.HttpResponseBadRequest()
+        else:
+            response = self.get_response(request)
+
+        response._handler_class = self.__class__
+        status = '%s %s' % (response.status_code, response.reason_phrase)
+        response_headers = [(str(k), str(v)) for k, v in response.items()]
+        for c in response.cookies.values():
+            response_headers.append((str('Set-Cookie'), str(c.output(header=''))))
+        start_response(force_str(status), response_headers)
+        return response
+```
