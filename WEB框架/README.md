@@ -39,7 +39,7 @@ if request.META.get('HTTP_XXX_TOKEN') != settings.RISK_TOKEN:
 ```
 character-set-server=utf8
 ##### Django.settings
-```
+```pyton
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'czp_mysql',
