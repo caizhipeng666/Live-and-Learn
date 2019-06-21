@@ -5,6 +5,14 @@
 ---|
 [mysql](#mysql)|
 
+```
+SELECT TABLE_NAME AS '表名',
+CONCAT(ROUND(TABLE_ROWS/10000, 2), ' 万行') AS '行数',
+CONCAT(ROUND(DATA_LENGTH/(1024*1024*1024), 2), ' GB') AS '表空间',
+CONCAT(ROUND(INDEX_LENGTH/(1024*1024*1024), 2), ' GB') AS '索引空间',
+CONCAT(ROUND((DATA_LENGTH+INDEX_LENGTH)/(1024*1024*1024),2),' GB') AS'总空间'
+FROM information_schema.TABLES WHERE TABLE_SCHEMA = '数据库名' ORDER BY TABLE_ROWS DESC;
+```
 
 # mysql
 * [创建](#mysql创建)
