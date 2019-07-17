@@ -8,7 +8,8 @@
 
 # 只测试某个方法
 ```
-python -m pytest xxx.py:XXX(class):xxx(def) -v
+python -m pytest xxx.py::XXX(class)::xxx(def) -v
+注意是用两个冒号隔开！
 ```
 
 * 参数
