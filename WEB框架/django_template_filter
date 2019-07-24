@@ -1,0 +1,18 @@
+.py
+```
+@register.simple_tag
+def modify_status_name(status):
+    _status = (status.replace('reviewing', '审核中')
+               .replace('rejected', '拒绝')
+               .replace('approved', '上架')
+               .replace('draft', '下架')
+               .replace('closed', '结束')
+               .replace('deleted', '删除')
+               .replace('hidden', '隐藏'))
+    return _status
+```
+.html
+```
+{% load useful %}
+<td>{% modify_status_name xxx.status %}</td>
+```
