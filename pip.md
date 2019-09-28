@@ -16,6 +16,7 @@ python3.6 -m pip install -r requirements.txt --user
 # pycurl
 ### 错误1：
 > ImportError: pycurl: libcurl link-time ssl backend (openssl) is different from compile-time ssl backend (none/other)
+
 ```
 # pip uninstall pycurl
 # export PYCURL_SSL_LIBRARY=openssl
@@ -24,6 +25,7 @@ python3.6 -m pip install -r requirements.txt --user
 
 ### 错误2：
 > ImportError: pycurl: libcurl link-time ssl backend (nss) is different from compile-time ssl backend (openssl)
+
 ```
 错误2的解决办法如下：
 # pip uninstall pycurl

@@ -35,6 +35,7 @@
 4. 设置cookies
 5. 返回response
 > ✓查找这个时间注册的处理函数发现，在django.core.db.__ init __.py中注册了close_old_connections事件处理函数
+
 ```
 ∴每当收到一个请求，wsgihandler都会发送信号:request_start
 database engine收到信号，检查所有的数据库connection是否有已经超时的，

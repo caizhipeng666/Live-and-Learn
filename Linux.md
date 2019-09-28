@@ -44,7 +44,8 @@ UID|PID|PPID|C|STIME|TTY|TIME|CMD
 ---|---|---|---|---|---|---|---
 拥有者|程序ID|父级ID|CPU资源占比|系统启动时间|登录者ip|使用掉的CPU|时间|下达的指令
 
-> 通常与grep一起使用，Ex:ps -ef|grep python
+> 通常与grep一起使用，Ex:ps -ef | grep python
+
 ---
 # grep
 参数|作用
