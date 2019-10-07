@@ -23,22 +23,3 @@
 > 最小连接数与最大连接数相差太大，那么最先的连接请求将会获利，之后超过最小连接数量的连接请求等价于建立一个新的数据库连接。   
 > 不过，这些新建的连接在使用完不会马上被释放，它将被放到连接池中等待重复使用或是空闲超时后被释放。   
 
-### Django中的数据库连接
-> ✈2006，MySQL server has gone away
-
-#### 在异步脚本中 因为处理的都是websocket，不经过wsgihandler；
-#### 因此数据库中超时的连接不会被及时的清理，因此导致了异步脚本中的数据库访问获取的连接可能已经超时
-##### Django源码（class WSGIHandler）：
-1. 加载request middleware
-2. 发送request_started的信号
-3. 获取response
-4. 设置cookies
-5. 返回response
-> ✓查找这个时间注册的处理函数发现，在django.core.db.__ init __.py中注册了close_old_connections事件处理函数
-
-```
-∴每当收到一个请求，wsgihandler都会发送信号:request_start
-database engine收到信号，检查所有的数据库connection是否有已经超时的，
-如果未设置CONN_MAX_AGE，或者设置的时间已经超时就关闭当前的数据库连接；
-因此设置适当的CONN_MAX_AGE既保证高效的重用连接，又防止长时间占用；
-```

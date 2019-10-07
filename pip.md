@@ -1,5 +1,3 @@
-# 
-
 * [pip](#pip)
 * [pycurl](#pycurl)
 

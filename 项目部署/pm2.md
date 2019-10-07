@@ -24,6 +24,7 @@ sudo npm install -g pm2
 1. 写好shell脚本/ json配置
 
 * shell
+
 ```
 #!/bin/sh
 set -e
@@ -36,6 +37,7 @@ python3 manage.py runscript xxx_xxx
 >> 如果没有虚拟环境 python -m venv 虚拟环境文件夹名
 
 * json
+
 ```
 {
   "apps" : [

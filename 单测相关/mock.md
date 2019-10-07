@@ -1,8 +1,10 @@
 # Mock
 > 请求拦截 
 ---
+
 * [Responses](#Responses)
 * [Pook](#Pook)
+
 ---
 # Responses
 ```python
@@ -23,26 +25,37 @@ def mock_test():
                  status=200,
                  content_type='application/json'
                  )
+```
+
 # 使用
+```python
 @mock_test
 class XXX:
 ```
-> assert_all_requests_are_fired=False来避免AssertionError: Not all requests have been executed
+
+> assert\_all\_requests\_are\_fired=False来避免AssertionError: Not all requests have been executed
+
 ---
 > 如果使用resp.add_callback()
+
 ```python
 def request_callback(request):
         resp_body = json.loads(request.body)  # 如果需要处理body
         headers = {'xxx': 'xxx'}
         return (200, headers, json.dumps(resp_body))
+```
 # 使用
+
+```python
 responses.add_callback(
         responses.GET, 'http://xxx.com/xxx',
         callback=request_callback,
         content_type='application/json',
     )
 ```
+
 > 当callback的函数有多个参数时,可以使用partial偏函数来减轻函数
+
 ```python
 def callback函数(request, xxx):
     pass
